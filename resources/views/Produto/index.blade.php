@@ -6,11 +6,17 @@
   <title>Página de Clientes</title>
   <script src="../../js/menu.js"></script>
 
+  <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/pg-users.css') }}">
+  <link href="{{ asset('css/pg-users.css') }}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
+
+    <script>
+        function remover(){
+            return confirm('Você deseja remover o produto ?');
+        }
+    </script>
 </head>
 <body>
   <header>
@@ -65,7 +71,7 @@
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Produtos</h1>
-        <a href="../web/src/views/register-product.php">
+        <a href="{{ Route('produto.create') }}">
           <button type="button" class="title__include">
             <img src="../../svgs/plus-square.svg" alt="+">
             Incluir Registro
@@ -114,10 +120,25 @@
         <tr align="center">
           <th>Cód.</th>
           <th>Nome</th>
-          <th>Categoria</th>
+          <th>Preço</th>
           <th>Ação</th>
         </tr>
-
+        @foreach($produtos as $produto)
+            <tr>
+                <td>{{ $produto -> id }}</td>
+                <td>{{ $produto -> ds_nome }}</td>
+                <td>{{ $produto -> vl_produto }}</td>
+                <td>
+                    <a href="#" class='btn btn-sm btn-success'>View</a>
+                    <a href="{{ route('produto.edit', $produto->id) }}" class='table__button table__edit'>Edit</a>
+                    <form class="d-inline" method="POST" action="{{route('produto.destroy', $produto->id) }}" onsubmit="return remover();">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit"  class='table__button table__remove'>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
       </table>
     </section>
   </main>
