@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de produto</title>
     <script src="../web/src/assets/js/menu.js"></script>
-    <link rel="stylesheet" href="../web/src/assets/styles/css/menu.css" />
-    <link rel="stylesheet" href="../web/src/assets/styles/css/header.css" />
-    <link rel="stylesheet" href="../web/src/assets/styles/css/main.css" />
-    <link rel="stylesheet" href="../web/src/assets/styles/css/register-client.css">
+
+    <script src="{{ asset('js/menu.js') }}"></script>
+
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/register-client.css') }}" rel="stylesheet">
+
     <link
       href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap"
       rel="stylesheet"
@@ -29,7 +33,7 @@
               Cadastros
               <img
                 class="title__icon"
-                src="../web/src/assets/svgs/arrow-down.svg"
+                src="{{ asset('svgs/arrow-down.svg') }}"
                 alt="arrow down"
               />
             </span>
@@ -50,7 +54,7 @@
               Mais
               <img
                 class="title__icon"
-                src="../web/src/assets/svgs/arrow-down.svg"
+                src="{{ asset('svgs/arrow-down.svg') }}"
                 alt="arrow down"
               />
             </span>
@@ -65,7 +69,7 @@
           </li>
         </ul>
         <a href="../web/src/views/welcome.php">
-          <img src="../web/src/assets/images/logo.png" alt="netuno" />
+            <img src="{{ asset('images/logo.png') }}">
         </a>
       </nav>
       <section class="main__page-content right-container">
