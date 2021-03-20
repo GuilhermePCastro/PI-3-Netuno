@@ -28,6 +28,8 @@ class CriaTbProduto extends Migration
             $table->string('hx_foto2')->default('');
             $table->timestamps();
 
+
+
         });
     }
 
