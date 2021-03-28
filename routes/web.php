@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,5 @@ Route::get('/', function () {
 
 //Produtos
 Route::resource('/produto', ProdutosController::class);
+Route::resource('/tag', TagController::class);
+Route::resource('/categoria', CategoriaController::class);
