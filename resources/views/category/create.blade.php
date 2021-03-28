@@ -69,18 +69,18 @@
           <h1 class="page-title mb">Categorias</h1>
         </div>
 
-        <form class="page-content__inputs mb" method='POST'  action="{{ Route('categoria.store') }}">
+        <form class="page-content__inputs mb" method='POST'  action="{{ Route('category.store') }}">
           @csrf
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
               Nome da Categoria*
-              <input name="cat_nome" type="text" required/>
+              <input name="cate_nome" type="text" required/>
             </label>
           </div>
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
               Descricao da Categoria
-              <input name="cat_descricao" type="text" required/>
+              <input name="cate_descricao" type="text" required/>
             </label>
           </div>
 

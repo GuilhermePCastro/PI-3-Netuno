@@ -71,7 +71,7 @@
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Categorias</h1>
-        <a href="{{ Route('categoria.create') }}">
+        <a href="{{ Route('category.create') }}">
           <button type="button" class="title__include">
             <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
             Incluir Registro
@@ -123,11 +123,11 @@
           <th>Descrição</th>
           <th>Ação</th>
         </tr>
-        @foreach($categoria as $cat)
+        @foreach($category as $cat)
             <tr>
                 <td>{{ $cat-> id }}</td>
-                <td>{{ $cat-> cat_nome }}</td>
-                <td>{{ $cat-> cat_descricao }}</td>
+                <td>{{ $cat-> cate_nome }}</td>
+                <td>{{ $cat-> cate_descricao }}</td>
                 <td>
                     <a href="#" >
                         <button class='table__button table__edit' type='button'>
@@ -135,13 +135,13 @@
                             View
                         </button>
                     </a>
-                    <a href="{{ route('categoria.edit', $cat->id) }}" >
+                    <a href="{{ route('category.edit', $cat->id) }}" >
                         <button class='table__button table__edit' type='button'>
                             <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
                             Alterar
                         </button>
                     </a>
-                    <form style="display: inline;" method="POST" action="{{route('categoria.destroy', $cat->id) }}" onsubmit="return remover();">
+                    <form style="display: inline;" method="POST" action="{{route('category.destroy', $cat->id) }}" onsubmit="return remover();">
                         @method('DELETE')
                         @csrf
                         <button type="submit"  class='table__button table__remove'>
