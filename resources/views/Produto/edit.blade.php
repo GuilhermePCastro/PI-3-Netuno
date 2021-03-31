@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de produto</title>
-    <script src="../web/src/assets/js/menu.js"></script>
-
     <script src="{{ asset('js/menu.js') }}"></script>
 
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -77,7 +75,7 @@
           <h1 class="page-title mb">Produtos(Alterar)</h1>
         </div>
 
-         <form class="page-content__inputs mb" method='POST'  action="{{ route('produto.update', $produto->id) }}">
+         <form class="page-content__inputs mb" method='POST'  action="{{ route('produto.update', $produto->id) }}" enctype="multipart/form-data">
           @method('PATCH')
           @csrf
           <div class="inputs-group mb">
@@ -125,14 +123,17 @@
             </label>
           </div>
 
+          <label class="input-container input-container">
+              Foto Principal
+              <input type="file" name='hx_foto1'/>
+            </label>
+            <label class="input-container input-container">
+              Foto Secundaria
+              <input type="file" name='hx_foto2'/>
+            </label>
           <label class="input-container">
             Descrição
             <textarea name="ds_descricao" id="" cols="30" rows="10">{{ $produto->ds_descricao}}</textarea>
-          </label>
-
-          <label class="checkbox-container mt mb">
-            <input name="tg_inativo" type="checkbox" @if($produto->tg_inativo==1) checked @endif/>
-            Inativo
           </label>
 
           <button class="blue-button mr" type="submit">Salvar</button>

@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Clientes</title>
-  <script src="{{ asset('js/menu.js') }}"></script>
+
 
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
   <link href="{{ asset('css/pg-users.css') }}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
+  <script src="{{ asset('js/menu.js') }}"></script>
 
     <script>
         function remover(){
@@ -125,6 +126,7 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
+                <td><img style="width: 50px; height:50px;" src="{{ asset($produto ->hx_foto1) }}"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
                 <td>{{ $produto -> vl_produto }}</td>

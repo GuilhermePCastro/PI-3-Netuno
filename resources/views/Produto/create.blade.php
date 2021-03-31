@@ -69,7 +69,7 @@
           <h1 class="page-title mb">Produtos</h1>
         </div>
 
-        <form class="page-content__inputs mb" method='POST'  action="{{ Route('produto.store') }}">
+        <form class="page-content__inputs mb" method='POST'  action="{{ Route('produto.store') }}" enctype="multipart/form-data">
           @csrf
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
@@ -115,16 +115,18 @@
               <input min='0' name="qt_estoque" type="number" />
             </label>
           </div>
-
-          <label class="input-container">
-            Descrição
-            <textarea name="ds_descricao" id="" cols="30" rows="10"></textarea>
-          </label>
-
-          <label class="checkbox-container mt mb">
-            <input name="tg_inativo" type="checkbox"  id="" />
-            Inativo
-          </label>
+            <label class="input-container input-container">
+              Foto Principal
+              <input type="file" name='hx_foto1'/>
+            </label>
+            <label class="input-container input-container">
+              Foto Secundaria
+              <input type="file" name='hx_foto2'/>
+            </label>
+            <label class="input-container">
+                Descrição
+                <textarea name="ds_descricao" id="" cols="30" rows="10"></textarea>
+            </label>
 
           <button class="blue-button mr" type="submit">Salvar</button>
           <button class="white-button" type="button">Limpar</button>

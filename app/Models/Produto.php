@@ -12,8 +12,8 @@ class Produto extends Model
     use SoftDeletes;
 
     protected $fillable = [ 'id', 'ds_nome', 'ds_descricao', 'fk_categoria', 'fk_tagproduto',
-                            'vl_produto', 'qt_estoque', 'qt_estoquemin', 'qt_estoquemax'];
+                            'vl_produto', 'qt_estoque', 'qt_estoquemin', 'qt_estoquemax', 'hx_foto1', 'hx_foto2'];
 
-    //'hx_foto1', 'hx_foto2'
+    //
     protected $table = 'tb_produto';
 }
