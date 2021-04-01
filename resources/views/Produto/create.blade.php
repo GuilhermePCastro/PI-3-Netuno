@@ -81,11 +81,12 @@
           <div class="inputs-group">
             <label class="input-container input-container-40">
               Categoria*
-              <select name="fk_categoria" id="" required>
-                <option value="0"></option>
-                <option value="1">ToyShow</option>
-                <option value="2">MuitoBrinquedo's</option>
-              </select>
+                <select name="category_id">
+                    <option value="">Selecione um valor</option>
+                    @foreach ($categories as $category )
+                        <option value="{{$category->id}}">{{$category->cate_nome}}</option>
+                    @endforeach
+                </select>
             </label>
             <label class="input-container input-container-40">
               Tag*

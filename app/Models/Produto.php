@@ -11,9 +11,14 @@ class Produto extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = [ 'id', 'ds_nome', 'ds_descricao', 'fk_categoria', 'fk_tagproduto',
+    protected $fillable = [ 'id', 'ds_nome', 'ds_descricao', 'category_id', 'fk_tagproduto',
                             'vl_produto', 'qt_estoque', 'qt_estoquemin', 'qt_estoquemax', 'hx_foto1', 'hx_foto2'];
 
     //
     protected $table = 'tb_produto';
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+
+    }
 }

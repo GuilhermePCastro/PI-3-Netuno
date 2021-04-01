@@ -14,8 +14,8 @@
   <script src="{{ asset('js/menu.js') }}"></script>
 
     <script>
-        function remover(){
-            return confirm('Você deseja remover o produto ?');
+        function restaurar(){
+            return confirm('Você deseja restaurar o produto ?');
         }
     </script>
 </head>
@@ -27,59 +27,51 @@
     </div>
   </header>
   <main class="main">
-
-    <nav class="sidebar">
+  <nav class="sidebar">
         <ul class="sidebar__nav">
-            <li class="nav__item hide-children">
-                <span class="item__title">
-                    Cadastros
-                    <img class="title__icon" src="{{ asset('svgs/arrow-down.svg') }}" alt="arrow down">
-                    </span>
-                <ul class="item__subnav">
-                    <li class="subnav__item">
-                        <a class="item__link" href="./clienteconsultar.php">Clientes</a>
-                    </li>
-                    <li class="subnav__item">
-                        <a class="item__link" href="./produtoconsultar.php">Produtos</a>
-                    </li>
-                    <li class="subnav__item">
-                        <a class="item__link" href="./usuarioconsultar.php">Usuários</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav__item hide-children">
-                <span class="item__title">
-                    Mais
-                    <img
-                        class="title__icon"
-                        src="{{ asset('svgs/arrow-down.svg') }}"
-                        alt="arrow down"
-                    />
-                </span>
-                <ul class="item__subnav">
-                    <li class="subnav__item">
-                        <a class="item__link" href="./logsconsultar.php">Logs</a>
-                    </li>
-                    <li class="subnav__item">
-                        <a class="item__link" href="../backend/functions/logout.php">Logout</a>
-                    </li>
-                </ul>
-            </li>
+          <li class="nav__item hide-children">
+            <span class="item__title">
+              Cadastros
+              <img class="title__icon" src="{{ asset('svgs/arrow-down.svg') }}" alt="arrow down">
+            </span>
+            <ul class="item__subnav">
+              <li class="subnav__item">
+                <a class="item__link" href="./clienteconsultar.php">Clientes</a>
+              </li>
+              <li class="subnav__item">
+                <a class="item__link" href="./produtoconsultar.php">Produtos</a>
+              </li>
+              <li class="subnav__item">
+                <a class="item__link" href="./usuarioconsultar.php">Usuários</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item hide-children">
+            <span class="item__title">
+              Mais
+              <img
+                class="title__icon"
+                src="{{ asset('svgs/arrow-down.svg') }}"
+                alt="arrow down"
+              />
+            </span>
+            <ul class="item__subnav">
+              <li class="subnav__item">
+                <a class="item__link" href="./logsconsultar.php">Logs</a>
+              </li>
+              <li class="subnav__item">
+                <a class="item__link" href="../backend/functions/logout.php">Logout</a>
+              </li>
+            </ul>
+          </li>
         </ul>
         <a href="../web/src/views/welcome.php">
-            <img src="{{ asset('images/logo.png') }}">
+          <img src="{{ asset('images/logo.png') }}">
         </a>
     </nav>
-
     <section class="main__page-content right-container">
       <div class="page-content__title">
-        <h1 class="title__text">Produtos</h1>
-        <a href="{{ Route('produto.create') }}">
-          <button type="button" class="title__include">
-            <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
-            Incluir Registro
-          </button>
-        </a>
+        <h1 class="title__text">Lixeira (Produtos)</h1>
       </div>
 
         <!-- Mostrando mensagem na tela com a session -->
@@ -141,18 +133,12 @@
                             View
                         </button>
                     </a>
-                    <a href="{{ route('produto.edit', $produto->id) }}" >
-                        <button class='table__button table__edit' type='button'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                            Alterar
-                        </button>
-                    </a>
-                    <form style="display: inline;" method="POST" action="{{route('produto.destroy', $produto->id) }}" onsubmit="return remover();">
-                        @method('DELETE')
+                    <form style="display: inline;" method="POST" action="{{route('produto.restore', $produto->id) }}" onsubmit="return restaurar();">
+                        @method('PATCH')
                         @csrf
-                        <button type="submit"  class='table__button table__remove'>
-                            <img src="{{ asset('svgs/trash-icon.svg') }}" alt='remover'>
-                            Delete
+                        <button type="submit"  class='table__button table__edit'>
+                            <img src="{{ asset('svgs/edit-icon.svg') }}" alt='remover'>
+                            Restaurar
                         </button>
                     </form>
                 </td>

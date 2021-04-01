@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produto;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProdutosController extends Controller
 {
     public function index(){
-        return view('produto.index')->with('produtos', Produto::all());
+        return view('produto.index')->with(['produtos'=>Produto::all(),'categories'=>Category::all()]);
     }
 
 
     public function create(){
-        return view('produto.create');
+        return view('produto.create')->with('categories', Category::all());
     }
 
     public function store(Request $request){
@@ -35,7 +36,7 @@ class ProdutosController extends Controller
         Produto::create([
             'ds_nome'       => $request->ds_nome,
             'ds_descricao'  => $request->ds_descricao,
-            'fk_categoria'  => $request->fk_categoria,
+            'category_id'   => $request->category_id,
             'fk_tagproduto' => $request->fk_tagproduto,
             'vl_produto'    => $request->vl_produto,
             'qt_estoque'    => $request->qt_estoque,
@@ -47,13 +48,13 @@ class ProdutosController extends Controller
         ]);
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', 'Produto foi cadastrado com sucesso!');
+        session() -> flash('valido', 'Produto foi cadastrado com sucesso!');
 
         return redirect(route('produto.index'));
     }
 
     public function edit(Produto $produto){
-        return view('produto.edit') -> with('produto', $produto);
+        return view('produto.edit')->with(['produto'=>$produto,'categories'=>Category::all()]);
     }
 
     public function update(Request $request, Produto $produto){
@@ -83,7 +84,7 @@ class ProdutosController extends Controller
         $produto->update([
             'ds_nome'       => $request->ds_nome,
             'ds_descricao'  => $request->ds_descricao,
-            'fk_categoria'  => $request->fk_categoria,
+            'category_id'   => $request->category_id,
             'fk_tagproduto' => $request->fk_tagproduto,
             'vl_produto'    => $request->vl_produto,
             'qt_estoque'    => $request->qt_estoque,
@@ -95,7 +96,7 @@ class ProdutosController extends Controller
         ]);
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', "Produto $request->id foi alterado com sucesso!");
+        session() -> flash('valido', "Produto $request->id foi alterado com sucesso!");
 
         return redirect(route('produto.index'));
     }
@@ -104,8 +105,20 @@ class ProdutosController extends Controller
         $produto -> delete();
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', "Produto $produto->id foi deletado com sucesso!");
+        session() -> flash('valido', "Produto $produto->id foi deletado com sucesso!");
         return redirect(route('produto.index'));
+    }
+
+    public function trash(){
+        return view('produto.trash')->with(['produtos'=>Produto::onlyTrashed()->get(),'categories'=>Category::all()]);
+    }
+
+    public function restore($id){
+        $produto = Produto::onlyTrashed()->where('id',$id)->firstOrFail();
+        $produto->restore();
+
+        session() -> flash('valido', "Produto $produto->id foi restaurado com sucesso!");
+        return redirect(route('produto.trash'));
     }
 
 }

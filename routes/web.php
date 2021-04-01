@@ -22,5 +22,9 @@ Route::get('/', function () {
 
 //Produtos
 Route::resource('/produto', ProdutosController::class);
+Route::get('/lixeira/produto', [ProdutosController::class, 'trash']) -> name('produto.trash');
+Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
+
+
 Route::resource('/tag', TagController::class);
 Route::resource('/category', CategoryController::class);
