@@ -96,7 +96,7 @@ class ProdutosController extends Controller
         ]);
 
         //Para dar um retorno para o usuário
-        session() -> flash('valido', "Produto $request->id foi alterado com sucesso!");
+        session() -> flash('valido', "Produto $produto->id foi alterado com sucesso!");
 
         return redirect(route('produto.index'));
     }
