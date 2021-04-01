@@ -20,7 +20,7 @@ class CategoryController extends Controller
         Category::create($request -> all());
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', 'category foi cadastrado com sucesso!');
+        session() -> flash('valido', 'Categoria foi cadastrada com sucesso!');
 
         return redirect(route('category.index'));
     }
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $category->update($request -> all());
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', "Category $request->id foi alterado com sucesso!");
+        session() -> flash('valido', "Categoria $request->id foi alterada com sucesso!");
 
         return redirect(route('category.index'));
     }
@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $category -> delete();
 
         //Para dar um retorno para o usuário
-        session() -> flash('success', "Category $category->id foi deletado com sucesso!");
+        session() -> flash('valido', "Categoria $category->id foi deletada com sucesso!");
         return redirect(route('category.index'));
     }
 }

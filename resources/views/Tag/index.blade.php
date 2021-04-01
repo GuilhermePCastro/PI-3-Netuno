@@ -26,48 +26,7 @@
     </div>
   </header>
   <main class="main">
-  <nav class="sidebar">
-        <ul class="sidebar__nav">
-          <li class="nav__item hide-children">
-            <span class="item__title">
-              Cadastros
-              <img class="title__icon" src="{{ asset('svgs/arrow-down.svg') }}" alt="arrow down">
-            </span>
-            <ul class="item__subnav">
-              <li class="subnav__item">
-                <a class="item__link" href="./clienteconsultar.php">Clientes</a>
-              </li>
-              <li class="subnav__item">
-                <a class="item__link" href="./produtoconsultar.php">Produtos</a>
-              </li>
-              <li class="subnav__item">
-                <a class="item__link" href="./usuarioconsultar.php">Usuários</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav__item hide-children">
-            <span class="item__title">
-              Mais
-              <img
-                class="title__icon"
-                src="{{ asset('svgs/arrow-down.svg') }}"
-                alt="arrow down"
-              />
-            </span>
-            <ul class="item__subnav">
-              <li class="subnav__item">
-                <a class="item__link" href="./logsconsultar.php">Logs</a>
-              </li>
-              <li class="subnav__item">
-                <a class="item__link" href="../backend/functions/logout.php">Logout</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <a href="../web/src/views/welcome.php">
-          <img src="{{ asset('images/logo.png') }}">
-        </a>
-    </nav>
+    @include('layouts.menu')
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Tags</h1>
@@ -101,14 +60,6 @@
         <label class="input-container input-container-40">
           Nome
           <input name="nome" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-30">
-          Categoria
-          <select name="categoria" id="" required>
-            <option value="0"></option>
-            <option value="1">Boneco</option>
-            <option value="2">Carro</option>
-          </select>
         </label>
         <button type="submit" class="inputs__search">
           <img  src="{{ asset('svgs/search-icon.svg') }}" alt="buscar">
