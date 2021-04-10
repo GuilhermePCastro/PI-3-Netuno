@@ -25,11 +25,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-//Produtos
-Route::resource('/produto', ProdutosController::class);
-Route::get('/lixeira/produto', [ProdutosController::class, 'trash']) -> name('produto.trash');
-Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
+//IsAdmin -> DEPOIS TROCAR
+Route::group(['middleware' => 'Auth'], function(){
+
+    //Produtos
+    Route::resource('/produto', ProdutosController::class, ['except' => ['show']]);
+    Route::get('/lixeira/produto', [ProdutosController::class, 'trash']) -> name('produto.trash');
+    Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
+
+    //tags
+    Route::resource('/tag', TagController::class);
+
+    //Categorias
+    Route::resource('/category', CategoryController::class);
+});
+
+//Coisas que todos podem acessar (Sendo Admin ou não)
+Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 
 
-Route::resource('/tag', TagController::class);
-Route::resource('/category', CategoryController::class);
