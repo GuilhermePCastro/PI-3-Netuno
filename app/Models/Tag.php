@@ -14,4 +14,8 @@ class Tag extends Model
     protected $fillable = ['tag_nome' ];
 
     protected $table = 'tb_tag';
+
+    public function products(){
+        return $this->belongsToMany(Produto::class);
+    }
 }
