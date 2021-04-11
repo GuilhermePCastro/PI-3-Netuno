@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('category.index')->with('category', Category::all());
     }
-
 
     public function create(){
         return view('category.create');
@@ -44,4 +47,17 @@ class CategoryController extends Controller
         $category -> delete();
         return redirect(route('category.index'));
     }
+
+    public function trash(){
+        return view('category.trash')->with(['category'=>Category::onlyTrashed()->get()]);
+    }
+
+    public function restore($id){
+        $category = Category::onlyTrashed()->where('id',$id)->firstOrFail();
+        $category->restore();
+
+        session() -> flash('valido', "category $category->id foi restaurado com sucesso!");
+        return redirect(route('category.trash'));
+    }
+
 }
