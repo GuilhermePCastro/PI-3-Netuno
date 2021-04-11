@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de Categoria</title>
+    <title>Registro de category</title>
     <script src="../assets/js/menu.js"></script>
 
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -73,13 +73,13 @@
           @csrf
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
-              Nome da Categoria*
+              Nome da categoria*
               <input name="cate_nome" type="text" required/>
             </label>
           </div>
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
-              Descricao da Categoria
+              Descricao da categoria
               <input name="cate_descricao" type="text" required/>
             </label>
           </div>

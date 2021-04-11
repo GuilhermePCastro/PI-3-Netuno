@@ -14,7 +14,7 @@
 
     <script>
         function remover(){
-            return confirm('Você deseja remover a categoria ?');
+            return confirm('Você deseja remover a category ?');
         }
     </script>
 </head>
@@ -70,7 +70,7 @@
     </nav>
     <section class="main__page-content right-container">
       <div class="page-content__title">
-        <h1 class="title__text">Categorias</h1>
+        <h1 class="title__text">Categoria</h1>
         <a href="{{ Route('category.create') }}">
           <button type="button" class="title__include">
             <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
@@ -103,8 +103,8 @@
           <input name="nome" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-30">
-          Categoria
-          <select name="categoria" id="" required>
+          categoria
+          <select name="category" id="" required>
             <option value="0"></option>
             <option value="1">Boneco</option>
             <option value="2">Carro</option>
