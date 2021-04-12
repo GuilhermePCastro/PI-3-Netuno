@@ -51,12 +51,16 @@
                     @endforeach
                 </select>
             </label>
+            </div>
+            <div class="inputs-group" >
             <label class="input-container input-container-40">
               Tag*
-              <select name="fk_tagproduto" value="{{ $produto->fk_tagproduto}}" id="" required>
-                <option value="0"></option>
-                <option value="1">Boneco</option>
-                <option value="2">Carro</option>
+              <select name="tags[]" id="" multiple>
+                    @foreach ($tags as $tag )
+                        <option value="{{$tag->id}}" @if($produto->tags->contains($tag->id)) selected @endif>
+                            {{$tag->tag_nome}}
+                        </option>
+                    @endforeach
               </select>
             </label>
           </div>

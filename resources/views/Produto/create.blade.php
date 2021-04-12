@@ -47,14 +47,14 @@
                     @endforeach
                 </select>
             </label>
-
+            </div>
+            <div class="inputs-group">
             <label class="input-container input-container-40">
-              Categoria*
-                <select name="category_id">
-                    <option value="">Selecione um valor</option>
-                    @foreach ($tags as $tag )
-                        <option value="{{$category->id}}">{{$tag->tag_nome}}</option>
-                    @endforeach
+              Tag*
+                <select name="tags[]" multiple>
+                        @foreach ($tags as $tag )
+                            <option value="{{$tag->id}}">{{$tag->tag_nome}}</option>
+                        @endforeach
                 </select>
             </label>
           </div>

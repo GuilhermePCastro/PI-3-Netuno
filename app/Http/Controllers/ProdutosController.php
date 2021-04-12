@@ -19,7 +19,7 @@ class ProdutosController extends Controller
 
 
     public function create(){
-        return view('produto.create')->with(['categories', Category::all(), 'tags' => Tag::all()]);
+        return view('produto.create')->with(['categories' => Category::all(), 'tags' => Tag::all()]);
     }
 
     public function store(Request $request){
@@ -38,11 +38,10 @@ class ProdutosController extends Controller
         }
 
 
-        Produto::create([
+        $produto = Produto::create([
             'ds_nome'       => $request->ds_nome,
             'ds_descricao'  => $request->ds_descricao,
             'category_id'   => $request->category_id,
-            'fk_tagproduto' => $request->fk_tagproduto,
             'vl_produto'    => $request->vl_produto,
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
@@ -52,7 +51,7 @@ class ProdutosController extends Controller
 
         ]);
 
-        $product->tags()->sync($request->tags);
+        $produto->tags()->sync($request->tags);
         //Para dar um retorno para o usuário
         session() -> flash('valido', 'Produto foi cadastrado com sucesso!');
 
@@ -91,7 +90,6 @@ class ProdutosController extends Controller
             'ds_nome'       => $request->ds_nome,
             'ds_descricao'  => $request->ds_descricao,
             'category_id'   => $request->category_id,
-            'fk_tagproduto' => $request->fk_tagproduto,
             'vl_produto'    => $request->vl_produto,
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
@@ -101,7 +99,7 @@ class ProdutosController extends Controller
 
         ]);
 
-        $product->tags()->sync($request->tags);
+        $produto->tags()->sync($request->tags);
         //Para dar um retorno para o usuário
         session() -> flash('valido', "Produto $produto->id foi alterado com sucesso!");
 
