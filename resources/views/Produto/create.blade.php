@@ -47,13 +47,15 @@
                     @endforeach
                 </select>
             </label>
+
             <label class="input-container input-container-40">
-              Tag*
-              <select name="fk_tagproduto" id="" required>
-                <option value="0"></option>
-                <option value="1">Boneco</option>
-                <option value="2">Carro</option>
-              </select>
+              Categoria*
+                <select name="category_id">
+                    <option value="">Selecione um valor</option>
+                    @foreach ($tags as $tag )
+                        <option value="{{$category->id}}">{{$tag->tag_nome}}</option>
+                    @endforeach
+                </select>
             </label>
           </div>
 

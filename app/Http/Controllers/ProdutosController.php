@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,7 @@ class ProdutosController extends Controller
 
 
     public function create(){
-        return view('produto.create')->with('categories', Category::all());
+        return view('produto.create')->with(['categories', Category::all(), 'tags' => Tag::all()]);
     }
 
     public function store(Request $request){
@@ -51,6 +52,7 @@ class ProdutosController extends Controller
 
         ]);
 
+        $product->tags()->sync($request->tags);
         //Para dar um retorno para o usuário
         session() -> flash('valido', 'Produto foi cadastrado com sucesso!');
 
@@ -58,7 +60,7 @@ class ProdutosController extends Controller
     }
 
     public function edit(Produto $produto){
-        return view('produto.edit')->with(['produto'=>$produto,'categories'=>Category::all()]);
+        return view('produto.edit')->with(['produto'=>$produto,'categories'=>Category::all(), 'tags'=>Tag::all()]);
     }
 
     public function update(Request $request, Produto $produto){
@@ -99,6 +101,7 @@ class ProdutosController extends Controller
 
         ]);
 
+        $product->tags()->sync($request->tags);
         //Para dar um retorno para o usuário
         session() -> flash('valido', "Produto $produto->id foi alterado com sucesso!");
 
