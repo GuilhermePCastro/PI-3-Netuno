@@ -16,12 +16,15 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->user()->IsAdmin){
-            return $next($request);
-        }else{
-            session()->flash('invalido','Você não tem permissão para essa página!');
-            return redirect()->back();
+        if(Auth()->user()){
+            if(Auth()->user()->IsAdmin){
+                return $next($request);
+            }
         }
+
+        session()->flash('invalido','Você não tem permissão para essa página!');
+        return redirect()->back();
+
 
     }
 }
