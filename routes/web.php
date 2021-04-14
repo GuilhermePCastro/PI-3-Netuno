@@ -25,6 +25,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+//Coisas que todos podem acessar (Sendo Admin ou não)
+Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
+
 //IsAdmin -> DEPOIS TROCAR
 Route::group(['middleware' => 'IsAdmin'], function(){
 
@@ -44,7 +48,6 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     Route::patch('/category/restaura/{id}', [CategoryController::class, 'restore'])->name('category.restore');
 });
 
-//Coisas que todos podem acessar (Sendo Admin ou não)
-Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
+
 
 
