@@ -22,7 +22,10 @@ class CategoryController extends Controller
     public function store(Request $request){
         Category::create($request -> all());
 
+        //Para dar um retorno para o usuário
+        session() -> flash('valido', "Categoria foi adicionada com sucesso!");
         return redirect(route('category.index'));
+
     }
 
     public function edit(Category $category){
@@ -40,11 +43,21 @@ class CategoryController extends Controller
 
         $category->update($request -> all());
 
+        session() -> flash('valido', "Categoria $category->id foi alterada com sucesso!");
         return redirect(route('category.index'));
     }
 
     public function destroy (Category $category){
+
+        if($category->products()->count() > 0){
+            session()->flash('invalido', "Não pode apagar categoria que tenha produto vinculado!");
+            return redirect(route('category.index'));
+        }
+
         $category -> delete();
+
+        //Para dar um retorno para o usuário
+        session() -> flash('valido', "Categoria $category->id foi deletada com sucesso!");
         return redirect(route('category.index'));
     }
 

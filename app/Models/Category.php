@@ -15,4 +15,8 @@ class Category extends Model
 
     protected $table = 'tb_category';
 
+    public function products(){
+        return $this->hasMany(Produto::class);
+    }
+
 }

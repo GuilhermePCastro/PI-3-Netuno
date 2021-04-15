@@ -67,7 +67,7 @@ class TagController extends Controller
     public function update(Request $request, Tag $tag)
     {
         $tag->update($request -> all());
-        session() -> flash('valido', "A tag $request->id foi alterada com sucesso!");
+        session() -> flash('valido', "A tag $tag->id foi alterada com sucesso!");
         return redirect(route('tag.index'));
     }
 
@@ -79,6 +79,11 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        if($tag->products()->count() > 0){
+            session()->flash('invalido', "Não pode apagar tag que tenha produto vinculado!");
+            return redirect(route('tag.index'));
+        }
+
         $tag->delete();
         session() -> flash('valido', "tag $tag->id foi deletado com sucesso!");
         return redirect(route('tag.index'));

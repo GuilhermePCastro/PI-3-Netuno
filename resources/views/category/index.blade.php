@@ -14,7 +14,7 @@
 
     <script>
         function remover(){
-            return confirm('Você deseja remover a category ?');
+            return confirm('Você deseja remover a categoria ?');
         }
     </script>
 </head>
@@ -27,6 +27,7 @@
   </header>
   <main class="main">
     @include('layouts.menu')
+    
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Categoria</h1>
