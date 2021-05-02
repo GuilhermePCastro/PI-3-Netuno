@@ -26,8 +26,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/login', function() {
+    return view('login');
+});
+
 Route::get('/home', function() {
-    return view('home');
+    return view('homeProduto');
 });
 
 
