@@ -31,7 +31,7 @@
 
             <div class="dsk-container-4x1"></div>
 
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow">
+            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
                 <img class="img-kard" src="https://via.placeholder.com/400" alt="">
                 <div class="w-100 cont-kard text-center">
                     <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
@@ -44,7 +44,7 @@
 
             <div class="dsk-container-4x1"></div>
 
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow">
+            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
                 <img class="img-kard" src="https://via.placeholder.com/400" alt="">
                 <div class="w-100 cont-kard text-center">
                     <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
@@ -58,8 +58,8 @@
             <div class="dsk-container-4x1"></div>
             <div class="sm-container-4x1"></div>
 
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow">
-                <img class="img-kard" src="https://via.placeholder.com/400" alt="">
+            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
+                <img class="img-kard " src="https://via.placeholder.com/400" alt="">
                 <div class="w-100 cont-kard text-center">
                     <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
                     <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">79.90</p>
@@ -71,7 +71,7 @@
 
             <div class="dsk-container-4x1"></div>
 
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow">
+            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
                 <img class="img-kard" src="https://via.placeholder.com/400" alt="">
                 <div class="w-100 cont-kard text-center">
                     <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
