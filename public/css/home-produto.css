@@ -11,6 +11,59 @@ body{
 }
 
 
+/* ---------------- HEADER -----------------*/
+.header-principal{
+    height: 100px;
+    border-bottom: 1px solid #D8D8D8;
+
+}
+
+/* --------------- Banner ---------------- */
+.banner {
+    min-height: 580px;
+}
+
+/* --------------- Kard ------------------ */
+.kard {
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+    border-radius: 0.5rem;
+}
+
+.cont-kard {
+    padding: 0.5rem;
+}
+
+.kard img {
+    border-radius: 0.5rem;
+    max-width: 100%;
+}
+
+.img-kard {
+    padding: 0.3rem;
+}
+
+.text-kard {
+    font-size: 1.3rem;
+}
+
+.money-kard {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-kard {
+    padding: 0.5rem 0;
+    background: #FFCE09;
+    border: none;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+
+
+
 .dsk-container-4x1{
     width: 4vw;
 }
@@ -115,8 +168,34 @@ body{
 }
 
 @media (max-width: 900px){
+
+    /* ---------- Banner ------------*/
+    .banner {
+        min-height: 200px;
+    }
+
+    /* --------------- Kard ------------------ */
+    .text-h2 {
+        font-size: 1.8rem;
+    }
+
+    .text-kard {
+        font-size: 1.1rem;
+    }
+
+    .money-kard {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
     .logo-header {
         height: 40px;
+    }
+
+    .header-principal{
+        height: 60px;
+        border-bottom: 1px solid #D8D8D8;
+
     }
 
     .sm-container-4x1{
