@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProdutosController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,19 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-Route::get('/login', function() {
-    return view('login');
-});
-
-Route::get('/home', function() {
-    return view('homeProduto');
-});
-
 
 //IsAdmin -> DEPOIS TROCAR
 Route::group(['middleware' => 'IsAdmin'], function(){
@@ -57,5 +44,11 @@ Route::group(['middleware' => 'IsAdmin'], function(){
 //Coisas que todos podem acessar (Sendo Admin ou não)
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 
+Route::get('/home', function() {
+    return view('homeProduto');
+});
 
+Route::get('/loginNew', function() {
+    return view('login');
+});
 
