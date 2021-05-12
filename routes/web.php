@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*

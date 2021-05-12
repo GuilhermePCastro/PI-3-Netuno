@@ -92,7 +92,7 @@
                 <td><img style="width: 50px; height:50px;" src="{{ asset($produto ->hx_foto1) }}"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
-                <td>{{ $produto -> vl_produto }}</td>
+                <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>
                 <td>
                     <a href="#" >
                         <button class='table__button table__edit' type='button'>
