@@ -51,6 +51,14 @@ Route::get('/home', function() {
     return view('homeProduto');
 });
 
+Route::get('/filtro', function() {
+    return view('prodFiltro');
+});
+
+Route::get('/desc', function() {
+    return view('prod');
+});
+
 Route::get('/loginNew', function() {
     return view('login');
 });
