@@ -1,17 +1,16 @@
 <x-guest-layout>
-    <header>
-        <div class="header-principal bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1 sm-container-4x8 "></div>
-            <div class="logo-header bg-primary dsk-container-4x4 sm-container-4x9"></div>
-        </div>
-        <div class="header-secondary bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1"></div>
-            <div class=" dsk-container-4x4 sm-container-4x19">
-                <p class="m-0 font-weight-bold h5">Acesse sua conta</p>
-                <p class="m-0 ">home > Acessar</p>
-            </div>
-        </div>
-    </header>
+
+    @php $titulo = "Acesse sua conta"  @endphp
+    @php $pagina = "Acessar"  @endphp
+    @include('layouts.headerAuth')
+
+    <div class="row m-0  mx-auto mt-3 p-0 justify-content-center dsk-container-4x25 align-items-center ">
+        <!-- Session Status -->
+        <x-auth-session-status :status="session('status')" />
+
+        <!-- Validation Errors -->
+        <x-auth-validation-errors :errors="$errors" />
+    </div>
 
     <div class="row m-0 heigth-dsk m-auto p-0 py-5 justify-content-center dsk-container-4x25 align-items-center ">
         <div class=" dsk-container-4x17 sm-container-4x23 d-flex sombrinha">

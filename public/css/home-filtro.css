@@ -43,6 +43,8 @@ body{
 
 .img-kard {
     padding: 0.3rem;
+    width: 300px;
+    height: 300px;
 }
 
 .text-kard {

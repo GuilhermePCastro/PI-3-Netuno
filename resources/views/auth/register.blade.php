@@ -1,18 +1,8 @@
 <x-guest-layout>
 
-    <header>
-        <div class="header-principal bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1 sm-container-4x8 "></div>
-            <div class="logo-header bg-primary dsk-container-4x4 sm-container-4x9"></div>
-        </div>
-        <div class="header-secondary bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1"></div>
-            <div class=" dsk-container-4x4 sm-container-4x19">
-                <p class="m-0 font-weight-bold h5">Cadastro de usuário</p>
-                <p class="m-0 ">home > Cadastrar-se</p>
-            </div>
-        </div>
-    </header>
+    @php $titulo = "Cadastro de usuário"  @endphp
+    @php $pagina = "Cadastrar-se"  @endphp
+    @include('layouts.headerAuth')
 
     <div class="row m-0 heigth-dsk m-auto p-0 py-5 justify-content-center dsk-container-4x25 align-items-center ">
         <div class=" dsk-container-4x10 sm-container-4x20 d-flex sombrinha">

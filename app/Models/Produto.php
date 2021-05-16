@@ -25,4 +25,8 @@ class Produto extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    public static function ultProdutos(){
+        return Produto::where('qt_estoque','>','0')->OrderBy('created_at','desc')->take(4)->get();
+    }
 }
