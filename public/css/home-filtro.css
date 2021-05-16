@@ -18,12 +18,11 @@ body{
 
 }
 
-/* --------------- Banner ---------------- */
-.banner {
-    background-image: url(../images/banner.png);
-    min-height: 580px;
-    width: 100%;
-    margin: 0;
+
+.text-h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F36F22;
 }
 
 /* --------------- Kard ------------------ */
@@ -194,17 +193,11 @@ body{
 
     }
 
-    /* ---------- Banner ------------*/
-    .banner {
-        background-image: url(../images/banner.png);
-        min-height: 200px;
-        width: auto;
-
-    }
-
     /* --------------- Kard ------------------ */
     .text-h2 {
         font-size: 1.8rem;
+        font-weight: bold;
+        color: #F36F22;
     }
 
     .text-kard {
