@@ -179,7 +179,8 @@ body{
 }
 
 .logo-header {
-    height: 60px;
+    height: 130px;
+    margin-bottom: 12px;
 }
 
 @media (max-width: 900px){
@@ -329,5 +330,10 @@ body{
 
     .sm-container-4x25{
         width: 100vw;
+    }
+
+    .logo-header {
+        height: 85px;
+        margin-bottom: 8px;
     }
 }
