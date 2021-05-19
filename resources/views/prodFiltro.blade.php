@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/home-filtro.css') }}">
     <title>Home Filtro</title>
 </head>
 <body class="dsk-container-4x25">
     <header>
-        <div class="header-principal bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1 sm-container-4x1 "></div>
-            <div class="logo-header bg-primary dsk-container-4x4 sm-container-4x9"></div>
-            <div class=" nav-item dropdown pl-3">
-                <a class="nav-link h-100 btn btn-outline-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Filtro
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-
-                  </div>
-            </div>
-        </div>
+       @include('layouts.headernaologado')
     </header>
 
     <div class=" mt-4 row m-0 justify-content-center">
@@ -35,7 +16,6 @@
                 <div class="dsk-container-4x1"></div>
                 <h2 class="m-0 text-uppercase text-h2 ">Lançamentos</h2>
             </div>
-
         </div>
     </div>
 
