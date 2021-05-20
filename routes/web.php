@@ -62,7 +62,6 @@ Route::group(['middleware' => 'auth'], function(){
 //Coisas que todos podem acessar (Sendo Admin ou não)
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 
-
 Route::get('/home', function() {
     return view('homeProduto');
 });
@@ -71,9 +70,7 @@ Route::get('/filtro', function() {
     return view('prodFiltro');
 });
 
-Route::get('/desc', function() {
-    return view('prod');
-});
+
 
 Route::get('/loginNew', function() {
     return view('login');

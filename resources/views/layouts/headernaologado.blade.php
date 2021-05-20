@@ -13,8 +13,9 @@
             </a>
             <!-- colocar aqui o foreach de tags -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                @foreach (\App\Models\Tag::all() as $tag)
+                    <a class="dropdown-item" href="{{ route('tag.show', $tag->id)}}">{{ $tag->tag_nome }}</a>
+                @endforeach
             </div>
             <!-- terminar aqui -->
         </div>
@@ -25,30 +26,46 @@
             </a>
             <!-- colocar aqui o foreach de categorias -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Roupas</a>
-                <a class="dropdown-item" href="#">Acessórios</a>
-                <a class="dropdown-item" href="#">Bonecos</a>
+                @foreach (\App\Models\Category::all() as $category)
+                    <a class="dropdown-item" href="{{ route('category.show', $category->id)}}">{{ $category->cate_nome }}</a>
+                @endforeach
             </div>
             <!-- terminar aqui -->
         </div>
 
 
-        <div class=" nav-item dropdown pl-3 ml-auto p-2 bd-highlight">
-            <a class="nav-link h-100 btn btn-warning dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Perfil
-            </a>
-            <!-- colocar aqui as informações do usuário -->
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Usuário</a>
-                <a class="dropdown-item" href="#">Another action</a>
+        @if(Auth()->user())
+            <div class=" nav-item dropdown pl-3 ml-auto p-2 bd-highlight">
+                <a class="nav-link h-100 btn btn-warning dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ Auth()->user()->name }}
+                </a>
+                <!-- colocar aqui as informações do usuário -->
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link style="" class="dropdown-item" :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Sair') }}
+                        </x-dropdown-link>
+                    </form>
+                </div>
+                <!-- terminar aqui -->
             </div>
-            <!-- terminar aqui -->
-        </div>
+             <!-- colocar aqui logout -->
+            <div class=" nav-item dropdown pl-3 ">
+                <a class="color-warning" href="#"><i class="fas fa-shopping-cart fa-2x""></i></a>
+            </div>
+            <div class=" dsk-container-4x1 sm-container-4x1 "></div>
+        @else
+            <div class="ml-auto p-2">
+                <a href="{{ Route('register') }}" class="mr-3">Registrar</a>
+                <a href="{{ Route('login') }}"class="mr-5">Entrar</a>
+            <div class=" dsk-container-4x1 sm-container-4x1"></div>
+        @endif
 
-        <!-- colocar aqui logout -->
-        <div class=" nav-item dropdown pl-3 ">
-            <a class="color-warning" href="#"><i class="fas fa-sign-out-alt fa-2x"></i></a>
-        </div>
-        <div class=" dsk-container-4x1 sm-container-4x1 "></div>
+
+
     </div>
 </div>

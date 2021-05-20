@@ -36,7 +36,7 @@
                         <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">{{ number_format($produto->vl_produto, 2, ',', '.') }}</p>
                     </div>
                     <div class="w-100 mt-3">
-                        <button class="btn-kard text-uppercase w-100">Adicionar</button>
+                        <button class="btn-kard text-uppercase w-100" onclick="window.location.href = '{{ route('produto.show', $produto->id) }}'" >Comprar</button>
                     </div>
                 </div>
 
