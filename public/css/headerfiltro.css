@@ -1,0 +1,43 @@
+.header-principal{
+    height: 100px;
+    border-bottom: 1px solid #D8D8D8;
+
+}
+
+.color-warning {
+    color:#FFCE09;
+}
+
+.color-warning:hover {
+    color:#ebbc01;
+}
+
+.text-h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F36F22;
+}
+
+.logo-header {
+    max-height: 50px;
+    width: auto;
+}
+
+.icon-yellow {
+    color: #FFCE09;
+}
+
+@media (max-width: 900px){
+
+    /* ----------- Header -------------*/
+
+    .logo-header {
+        height: 40px;
+    }
+
+    .header-principal{
+        height: 60px;
+        border-bottom: 1px solid #D8D8D8;
+
+    }
+}

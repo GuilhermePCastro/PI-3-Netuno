@@ -10,17 +10,12 @@ body{
     height: 100vh;
 }
 
-
-/* ---------------- HEADER -----------------*/
-.header-principal{
-    height: 100px;
-    border-bottom: 1px solid #D8D8D8;
-
-}
-
 /* --------------- Banner ---------------- */
 .banner {
+    background-image: url(../images/banner.png);
     min-height: 580px;
+    width: 100%;
+    margin: 0;
 }
 
 /* --------------- Kard ------------------ */
@@ -41,6 +36,8 @@ body{
 
 .img-kard {
     padding: 0.3rem;
+    width: 300px;
+    height: 300px;
 }
 
 .text-kard {
@@ -60,6 +57,18 @@ body{
     color: #fff;
     font-weight: 500;
     border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ------ Banner -------*/
+.img-banner img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.img-kard-content img {
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
 .dsk-container-4x1{
@@ -162,7 +171,8 @@ body{
 }
 
 .logo-header {
-    height: 60px;
+    height: 130px;
+    margin-bottom: 12px;
 }
 
 @media (max-width: 900px){
@@ -181,7 +191,10 @@ body{
 
     /* ---------- Banner ------------*/
     .banner {
+        background-image: url(../images/banner.png);
         min-height: 200px;
+        width: auto;
+
     }
 
     /* --------------- Kard ------------------ */
@@ -309,5 +322,10 @@ body{
 
     .sm-container-4x25{
         width: 100vw;
+    }
+
+    .logo-header {
+        height: 85px;
+        margin-bottom: 8px;
     }
 }

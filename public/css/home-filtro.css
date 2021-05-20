@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
 }
 
 body{
@@ -11,47 +10,64 @@ body{
     height: 100vh;
 }
 
-
-
-/* ---------------- Header ---------------- */
-
-.header-principal{
-    height: 100px;
-    border-bottom: 1px solid #D8D8D8;
-
+.text-h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F36F22;
 }
 
-.header-secondary{
-    height: 50px;
-    border-bottom: 1px solid #D8D8D8;
+/* --------------- Kard ------------------ */
+.kard {
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+    border-radius: 0.5rem;
 }
 
-/* ------------- Conteudo ---------------- */
-.heigth-dsk {
-    min-height: calc(100vh - 350px);
+.cont-kard {
+    padding: 0.5rem;
 }
 
-/* --------------- FOOTER ------------------ */
-.footer-principal {
+.kard img {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.img-kard {
+    padding: 0.3rem;
+    width: 300px;
+    height: 300px;
+}
+
+.text-kard {
+    font-size: 1.3rem;
+}
+
+.money-kard {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-kard {
+    padding: 0.7rem 0;
+    background: #FFCE09;
+    border: none;
     width: 100%;
-    height: 200px;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 0 0 0.5rem 0.5rem;
 }
 
-
-
-.borda-right {
-    border-right: 1px #D8D8D8 solid;
+/* ------ Banner -------*/
+.img-banner img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
-.sombrinha{
-    box-shadow: 1px 1px 2px 2px #D8D8D8;
+.img-kard-content img {
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
-
-
-
 
 .dsk-container-4x1{
     width: 4vw;
@@ -153,13 +169,51 @@ body{
 }
 
 .logo-header {
-    width: 60px;
+    height: 60px;
 }
 
 @media (max-width: 900px){
+
+    /* ----------- Header -------------*/
+
     .logo-header {
         height: 40px;
     }
+
+    .header-principal{
+        height: 60px;
+        border-bottom: 1px solid #D8D8D8;
+
+    }
+
+    /* --------------- Kard ------------------ */
+    .text-h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #F36F22;
+    }
+
+    .text-kard {
+        font-size: 1.1rem;
+    }
+
+    .money-kard {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .btn-kard {
+        padding: 0.5rem 0;
+        background: #FFCE09;
+        border: none;
+        width: 100%;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+
+    /* ------------- -----------------*/
 
     .sm-container-4x1{
         width: 4vw;
@@ -260,14 +314,4 @@ body{
     .sm-container-4x25{
         width: 100vw;
     }
-
-    /* ------- Footer -----------*/
-    .footer-principal {
-        width: 0%;
-        height: 0;
-        background-color: black;
-        position: absolute;
-        bottom: 0;
-    }
 }
-
