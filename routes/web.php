@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('homeProduto');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -53,26 +49,17 @@ Route::group(['middleware' => 'IsAdmin'], function(){
 Route::group(['middleware' => 'auth'], function(){
 
     //Carrinho
-    Route::get('/carrinho/add/{product}', [CarrinhoController::class, 'add'])->name('carrinho.add');
-    Route::get('/carrinho/remove/{product}', [CarrinhoController::class, 'remove'])->name('carrinho.remove');
+    Route::get('/carrinho/add/{produto}', [CarrinhoController::class, 'add'])->name('carrinho.add');
+    Route::get('/carrinho/remove/{produto}', [CarrinhoController::class, 'remove'])->name('carrinho.remove');
     Route::get('/carrinho', [CarrinhoController::class, 'show'])->name('carrinho.show');
     Route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
+
+    //Pedido
+    Route::post('/pedido/add', [OrderController::class, 'add'])->name('pedido.add');
+    Route::get('/pedido', [OrderController::class, 'show'])->name('pedido.show');
 });
 
 //Coisas que todos podem acessar (Sendo Admin ou não)
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 
-Route::get('/home', function() {
-    return view('homeProduto');
-});
-
-Route::get('/filtro', function() {
-    return view('prodFiltro');
-});
-
-
-
-Route::get('/loginNew', function() {
-    return view('login');
-});
 

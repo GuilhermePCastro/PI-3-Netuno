@@ -14,7 +14,9 @@
             <!-- colocar aqui o foreach de tags -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @foreach (\App\Models\Tag::all() as $tag)
-                    <a class="dropdown-item" href="{{ route('tag.show', $tag->id)}}">{{ $tag->tag_nome }}</a>
+                    @if (\App\Models\Tag::quantidadesProdutos($tag->id) > 0)
+                        <a class="dropdown-item" href="{{ route('tag.show', $tag->id)}}">{{ $tag->tag_nome }}</a>
+                    @endif
                 @endforeach
             </div>
             <!-- terminar aqui -->
@@ -27,7 +29,9 @@
             <!-- colocar aqui o foreach de categorias -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @foreach (\App\Models\Category::all() as $category)
-                    <a class="dropdown-item" href="{{ route('category.show', $category->id)}}">{{ $category->cate_nome }}</a>
+                    @if (\App\Models\Category::quantidadesProdutos($category->id) > 0)
+                        <a class="dropdown-item" href="{{ route('category.show', $category->id)}}">{{ $category->cate_nome }}</a>
+                    @endif
                 @endforeach
             </div>
             <!-- terminar aqui -->
@@ -55,7 +59,7 @@
             </div>
              <!-- colocar aqui logout -->
             <div class=" nav-item dropdown pl-3 ">
-                <a class="color-warning" href="#"><i class="fas fa-shopping-cart fa-2x""></i></a>
+                <a class="color-warning" href="#"><i class="fas fa-shopping-cart fa-2x""></i>{{ \App\Models\Carrinho::quantidade() }}</a>
             </div>
             <div class=" dsk-container-4x1 sm-container-4x1 "></div>
         @else

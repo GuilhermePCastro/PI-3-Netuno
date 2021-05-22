@@ -18,6 +18,16 @@
         </div>
     </header>
 
+    <!-- Mostrando mensagem na tela com a session -->
+    @if(session()->has('success'))
+        <div class="alert alert-success" role="alert"> {{session()->get('success')}}</div>
+    @endif
+        <!-- Mostrando mensagem na tela com a session -->
+    @if(session()->has('error'))
+        <div class="alert alert-danger" role="alert"> {{session()->get('error')}} </div>
+    @endif
+
+
 <div class=" row mx-0 my-4 justify-content-center ">
     <div class=" col-12 col-md-7 col-xl-5 produto text-center p-3">
         <img src="{{ asset($produto->hx_foto1) }}" alt="imagem">
@@ -29,7 +39,7 @@
                 <p class="mb-0 prod-desc-title">{{ $produto->ds_nome}}</p>
                 <p class="mb-3 prod-desc-price">R$ {{ number_format($produto -> vl_produto, 2, ',', '.') }}</p>
                 <p class="mb-3 prod-desc-parcela">em até 6x de R$ {{ number_format($produto -> vl_produto/6, 2, ',', '.') }} (Sem juros)</p>
-                <button class=" mt-3 mb-4 w-100 btn btn-danger text-uppercase">Adicionar ao carrinho</button>
+                <button class=" mt-3 mb-4 w-100 btn btn-danger text-uppercase" onclick="window.location.href = '{{ Route('carrinho.add',  $produto->id) }}'">Adicionar ao carrinho</button>
                 <div class="d-block">
                     <span class="h6 d-block">Tags</span>
                     @foreach ($produto->tags as $tag)

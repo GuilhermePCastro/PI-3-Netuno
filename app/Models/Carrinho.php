@@ -33,7 +33,7 @@ class Carrinho extends Model
         $total = 0;
 
         foreach($carrinho as $item){
-            $total += $item->product()->vl_produto * $item->qt_produto;
+            $total += $item->produto()->vl_produto * $item->qt_produto;
         }
 
         return $total;
