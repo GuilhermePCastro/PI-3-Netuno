@@ -9,7 +9,7 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','ds_status', 'endereco_id', 'cd_cartao', 'vl_total', 'vl_parcela', 'nr_parcela'];
+    protected $fillable = ['user_id','ds_status', 'cliente_id', 'ds_endereco', 'ds_numero', 'ds_cep', 'ds_cidade','ds_estado', 'vl_total', 'vl_parcela', 'nr_parcela'];
     protected $table = 'tb_pedido';
 
     public function itens(){

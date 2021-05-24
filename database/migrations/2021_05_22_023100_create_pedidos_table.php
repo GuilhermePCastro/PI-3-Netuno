@@ -17,7 +17,12 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('ds_status');
-            $table->integer('endereco_id');
+            $table->integer('cliente_id');
+            $table->string('ds_endereco');
+            $table->string('ds_numero');
+            $table->string('ds_cep');
+            $table->string('ds_cidade');
+            $table->string('ds_uf');
             $table->string('cd_cartao');
             $table->double('vl_total',12,4);
             $table->double('vl_parcela',12,4);
