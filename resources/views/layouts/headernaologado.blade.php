@@ -45,6 +45,9 @@
                 </a>
                 <!-- colocar aqui as informações do usuário -->
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @if (Auth()->user()->IsAdmin == 1)
+                        <a class="dropdown-item" href="#">Admin</a>
+                    @endif
                     <a class="dropdown-item" href="#">Perfil</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

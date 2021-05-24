@@ -61,5 +61,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 //Coisas que todos podem acessar (Sendo Admin ou não)
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
+Route::resource('/tag', TagController::class, ['only' => ['show']]);
+Route::resource('/category', CategoryController::class, ['only' => ['show']]);
 
 

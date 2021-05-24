@@ -18,7 +18,12 @@ class PedidoController extends Controller
         $pedido = Pedido::create([
             'user_id' => Auth()->user()->id,
             'status' => 'Em aberto',
-            'endereco_id' => $endereco->id,
+            'cliente_id' => $cliente->id,
+            'ds_endereco' => $request->ds_endereco,
+            'ds_numero' => $request->ds_numero,
+            'ds_cep' => $request->ds_cep,
+            'ds_cidade' => $request->ds_cidade,
+            'ds_estado' => $request->ds_estado,
             'cd_cartao' => substr($request->'nome do campo do cartão',-4),
             'vl_total' => $request->vl_total,
             'nr_parcela' => $request->nr_parcela,
