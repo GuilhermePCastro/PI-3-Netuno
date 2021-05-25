@@ -3,7 +3,7 @@
 <head>
     @include('layouts.head')
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/carrinho.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/pagamento.css')}}">
     <script src="{{ asset('js/pagamento.js') }}"></script>
 </head>
 <body>
