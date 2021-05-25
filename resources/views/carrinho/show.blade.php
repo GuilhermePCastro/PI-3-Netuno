@@ -19,7 +19,7 @@
             </div>
 
             <div class=" mt-5 col-12 text-center">
-                <h2 class=" h1">Carrinho de Compra</h2>
+                <h2 class=" h1">Meu Carrinho</h2>
                 <i class="fas fa-cart-plus fa-3x blue"></i>
             </div>
 
@@ -71,10 +71,10 @@
 
             <div class="col-12 col-md-11 col-lg-10 py-5 bg-warning">
                 <div class=" m-0 row justify-content-center-md justify-content-end ">
-                    <div class=" col-12 col-md-6 text-right">
+                    <div class=" col-12 col-md-12 text-right">
                         <p class="mr-2 text-shadow text-final m-0 d-inline-block text-white">Valor Total Da Compra:</p><span class="mr-2 text-white text-final-money d-inline-block">R$</span><p class="text-white text-final d-inline-block">1200</p>
                     </div>
-                    <div class=" col-12 col-md-4">
+                    <div class=" col-12 col-md-2">
                         <button class="w-100 btn btn-outline-success text-button">Finalizar Compra</button>
                     </div>
                 </div>

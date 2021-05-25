@@ -8,7 +8,9 @@
 </head>
 <body>
 
-
+    <header>
+        @include('layouts.headernaologado')
+    </header>
 
     <!-- MultiStep Form -->
     <div class="container-fluid " id="grad1">
@@ -21,11 +23,8 @@
                         <div class="col-md-12 mx-0">
                             <form id="msform">
                                 <!-- progressbar -->
-                                <ul id="progressbar">
-                                    <li class="active" id="account">
-                                        <strong>Conta</strong>
-                                    </li>
-                                    <li id="personal">
+                                <ul class=" row justify-content-center" id="progressbar">
+                                    <li id="personal" class=" active">
                                         <strong>Localização</strong>
                                     </li>
                                     <li id="payment">
@@ -35,32 +34,21 @@
                                         <strong>Finalizado</strong>
                                     </li>
                                 </ul> <!-- fieldsets -->
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Informações da Conta</h2>
-                                        <input type="text" name="login" placeholder="Login" />
-                                        <input type="password" name="senha" placeholder="senha" />
-                                        <input type="password" name="senha2" placeholder="confirmação da senha" />
-                                    </div>
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
-                                </fieldset>
-                                <fieldset>
+                                <fieldset id="steep-first">
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Localização</h2>
                                         <input type="text" name="fname" placeholder="First Name" />
                                         <input type="text" name="lname" placeholder="Last Name" />
                                         <input type="text" name="phno" placeholder="Contact No." />
                                         <input type="text" name="phno_2" placeholder="Alternate Contact No." />
-                                    </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                    </div>
+
                                     <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
-                                <fieldset>
+                                <fieldset id="steep-seccond">
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Pagamento</h2>
-                                        <div class="radio-group">
-                                            <div class='radio' data-value="credit"><img src="https://via.placeholder.com/400" width="200px" height="100px"></div>
-                                            <div class='radio' data-value="paypal"><img src="https://via.placeholder.com/400" width="200px" height="100px"></div> <br>
-                                        </div>
+
                                         <label class="pay">Card Holder Name*</label>
                                         <input type="text" name="holdername" placeholder="" />
                                         <div class="row">
@@ -71,13 +59,18 @@
                                                 <input type="password" name="cvcpwd" placeholder="***" />
                                             </div>
                                         </div>
+                                        <select class="custom-select" id="inputGroupSelect01">
+                                            <option selected>Parcelas</option>
+                                            <option value="1">1 meses</option>
+                                            <option value="2">2 meses</option>
+                                            <option value="3">3 meses</option>
+                                        </select>
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <input type="button" name="make_payment" class="next action-button" value="Confirm" />
                                 </fieldset>
-                                <fieldset>
+                                <fieldset id="steep-third">
                                     <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                        <h2 class="fs-title text-center">Successo !</h2> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3">
                                                 <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
@@ -85,7 +78,7 @@
                                         </div> <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
+                                                <h5>Compra Feita Com Sucesso</h5>
                                             </div>
                                         </div>
                                     </div>
