@@ -4,6 +4,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,11 @@ Route::group(['middleware' => 'auth'], function(){
     //Pedido
     Route::post('/pedido/add', [OrderController::class, 'add'])->name('pedido.add');
     Route::get('/pedido', [OrderController::class, 'show'])->name('pedido.show');
+
+    //Cliente
+    Route::resource('/cliente', ClienteController::class);
+    Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');
+    Route::patch('/cliente/restaura/{id}', [ClienteController::class, 'restore'])->name('cliente.restore');
 });
 
 //Coisas que todos podem acessar (Sendo Admin ou não)
@@ -64,4 +70,10 @@ Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 Route::resource('/tag', TagController::class, ['only' => ['show']]);
 Route::resource('/category', CategoryController::class, ['only' => ['show']]);
 
+Route::get('/dashboard', function () {
+    return view('cliente.show');
+});
 
+Route::get('/perfil', function () {
+    return view('cliente.create');
+});

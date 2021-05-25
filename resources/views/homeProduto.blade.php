@@ -3,7 +3,7 @@
 <head>
     @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/home-produto.css') }}">
-    <title>Document</title>
+    <title>Netuno</title>
 </head>
 <body class="dsk-container-4x25">
 

@@ -48,7 +48,9 @@
                     @if (Auth()->user()->IsAdmin == 1)
                         <a class="dropdown-item" href="#">Admin</a>
                     @endif
-                    <a class="dropdown-item" href="#">Perfil</a>
+                    @if (\App\Models\User::cliente())
+                        <a class="dropdown-item" href="{{ route('cliente.show', \App\Models\User::cliente()->id )}} ">Perfil</a>
+                    @endif
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-dropdown-link style="" class="dropdown-item" :href="route('logout')"
@@ -62,7 +64,7 @@
             </div>
              <!-- colocar aqui logout -->
             <div class=" nav-item dropdown pl-3 ">
-                <a class="color-warning" href="#"><i class="fas fa-shopping-cart fa-2x""></i>{{ \App\Models\Carrinho::quantidade() }}</a>
+                <a class="color-warning h5" href="#"><i class="fas fa-shopping-cart fa-2x""></i>{{ \App\Models\Carrinho::quantidade() }}</a>
             </div>
             <div class=" dsk-container-4x1 sm-container-4x1 "></div>
         @else
