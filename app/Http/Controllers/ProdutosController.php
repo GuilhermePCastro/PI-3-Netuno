@@ -127,4 +127,9 @@ class ProdutosController extends Controller
         return redirect(route('produto.trash'));
     }
 
+    public function search(Request $request){
+        $produtos = Produto::where('ds_nome','like', '%' . $request->search . '%')->paginate(8);
+        return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search]);
+    }
+
 }

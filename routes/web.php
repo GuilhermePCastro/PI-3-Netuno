@@ -72,4 +72,5 @@ Route::group(['middleware' => 'auth'], function(){
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 Route::resource('/tag', TagController::class, ['only' => ['show']]);
 Route::resource('/category', CategoryController::class, ['only' => ['show']]);
+Route::get('/search', [ProdutosController::class, 'search'])->name('produto.search');
 
