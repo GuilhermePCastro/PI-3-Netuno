@@ -15,8 +15,20 @@ class Category extends Model
 
     protected $table = 'tb_category';
 
-    public function products(){
+    public function produtos(){
         return $this->hasMany(Produto::class);
+    }
+
+    public static function quantidadesProdutos($id){
+        $produtos = Produto::where('category_id', '=', $id)->get();
+        $total = 0;
+
+        foreach($produtos as $item){
+            if($item->id)
+            $total += 1;
+        }
+
+        return $total;
     }
 
 }

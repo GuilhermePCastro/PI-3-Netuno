@@ -22,6 +22,10 @@ class ProdutosController extends Controller
         return view('produto.create')->with(['categories' => Category::all(), 'tags' => Tag::all()]);
     }
 
+    public function show(Produto $produto){
+        return view('produto.show')->with('produto', $produto);
+    }
+
     public function store(Request $request){
 
         //Ajustando as imagens do produto

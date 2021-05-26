@@ -28,6 +28,11 @@ class CategoryController extends Controller
 
     }
 
+    public function show(Category $category)
+    {
+       return view('category.show')->with(['category' => $category, 'produtos' => $category->produtos()->paginate(8)]);
+    }
+
     public function edit(Category $category){
         return view('category.edit') -> with('category', $category);
     }

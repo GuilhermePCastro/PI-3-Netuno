@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/home-filtro.css') }}">

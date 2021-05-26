@@ -32,6 +32,11 @@ class TagController extends Controller
         return view('tag.create');
     }
 
+    public function show(Tag $tag)
+    {
+        return view('tag.show')->with(['tag' => $tag, 'produtos' => $tag->produtos()->paginate(8)]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

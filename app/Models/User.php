@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public static function cliente(){
+        return Cliente::where('user_id', '=', Auth()->user()->id)->first();
+    }
 }
