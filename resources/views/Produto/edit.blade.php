@@ -20,8 +20,7 @@
   </head>
   <body>
     <header>
-      <div class="bg-blue"></div>
-      <div class="bg-yellow"></div>
+        @include('layouts.headerdashboard')
     </header>
     <main class="main">
       @include('layouts.menu')

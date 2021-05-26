@@ -18,14 +18,13 @@
   </head>
   <body>
     <header>
-      <div class="bg-blue"></div>
-      <div class="bg-yellow"></div>
+        @include('layouts.headerdashboard')
     </header>
     <main class="main">
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Produtos</h1>
+          <h1 class="page-title mb ">Produtos</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('produto.store') }}" enctype="multipart/form-data">

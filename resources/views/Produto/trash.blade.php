@@ -20,8 +20,8 @@
     </script>
 </head>
 <body>
-  <header>
-        @include('layouts.headernaologado')
+    <header>
+        @include('layouts.headerdashboard')
     </header>
   <main class="main">
     @include('layouts.menu')

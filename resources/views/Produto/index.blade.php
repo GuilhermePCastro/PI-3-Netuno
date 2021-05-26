@@ -20,7 +20,7 @@
     </script>
 </head>
 <body>
-  <header>
+    <header>
         @include('layouts.headerdashboard')
     </header>
 

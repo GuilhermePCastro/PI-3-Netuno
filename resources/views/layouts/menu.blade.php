@@ -7,9 +7,6 @@
                 </span>
             <ul class="item__subnav">
                 <li class="subnav__item">
-                    <a class="item__link" href="{{ Route('produto.index') }}">Clientes</a>
-                </li>
-                <li class="subnav__item">
                     <a class="item__link" href="{{ Route('produto.index') }}">Produtos</a>
                 </li>
                 <li class="subnav__item">
@@ -17,9 +14,6 @@
                 </li>
                 <li class="subnav__item">
                     <a class="item__link" href="{{ Route('tag.index') }}">Tag</a>
-                </li>
-                <li class="subnav__item">
-                    <a class="item__link" href="./usuarioconsultar.php">Usuários</a>
                 </li>
             </ul>
         </li>
@@ -34,10 +28,7 @@
             </span>
             <ul class="item__subnav">
                 <li class="subnav__item">
-                    <a class="item__link" href="./logsconsultar.php">Logs</a>
-                </li>
-                <li class="subnav__item">
-                    <a class="item__link" href="../backend/functions/logout.php">Logout</a>
+                    <a class="item__link" href="/">Home</a>
                 </li>
             </ul>
         </li>

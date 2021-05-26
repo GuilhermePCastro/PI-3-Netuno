@@ -8,15 +8,15 @@
 <body class="dsk-container-4x25">
     <header>
         @include('layouts.headernaologado')
-        <div class="header-secondary bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1"></div>
-            <div class=" py-2 dsk-container-2x4 sm-container-4x19">
-                <a class="m-0 h6" href="{{ url('/')}}">Home ></a>
-                <a class="m-0 text-sm h6" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->category->cate_nome}} ></a>
-                <span class="m-0 text-sm" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->ds_nome}}</span>
-            </div>
-        </div>
     </header>
+    <div class="header-secondary bg-light d-flex align-items-center">
+        <div class=" dsk-container-4x1"></div>
+        <div class=" py-2 dsk-container-2x4 sm-container-4x19">
+            <a class="m-0 h6" href="{{ url('/')}}">Home ></a>
+            <a class="m-0 text-sm h6" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->category->cate_nome}} ></a>
+            <span class="m-0 text-sm" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->ds_nome}}</span>
+        </div>
+    </div>
 
     <!-- Mostrando mensagem na tela com a session -->
     @if(session()->has('success'))
