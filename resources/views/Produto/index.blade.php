@@ -21,11 +21,10 @@
 </head>
 <body>
   <header>
-    <div class="bg-blue">
-    </div>
-    <div class="bg-yellow">
-    </div>
-  </header>
+        @include('layouts.headerdashboard')
+    </header>
+
+
   <main class="main">
 
     @include('layouts.menu')
@@ -35,7 +34,6 @@
         <h1 class="title__text">Produtos</h1>
         <a href="{{ Route('produto.create') }}">
           <button type="button" class="title__include">
-            <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
             Incluir Registro
           </button>
         </a>
@@ -74,7 +72,7 @@
             </select>
         </label>
         <button type="submit" class="inputs__search">
-          <img  src="{{ asset('svgs/search-icon.svg') }}" alt="buscar">
+
           Buscar
         </button>
       </form>
@@ -89,17 +87,12 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
-                <td><img style="width: 50px; height:50px;" src="{{ asset($produto ->hx_foto1) }}"></td>
+                <td><img src="{{ asset($produto ->hx_foto1) }}"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
                 <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>
                 <td>
-                    <a href="#" >
-                        <button class='table__button table__edit' type='button'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                            View
-                        </button>
-                    </a>
+
                     <a href="{{ route('produto.edit', $produto->id) }}" >
                         <button class='table__button table__edit' type='button'>
                             <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>

@@ -2,7 +2,7 @@
     <ul class="sidebar__nav">
         <li class="nav__item hide-children">
             <span class="item__title">
-                Cadastros
+                <span>Cadastros</span>
                 <img class="title__icon" src="{{ asset('svgs/arrow-down.svg') }}" alt="arrow down">
                 </span>
             <ul class="item__subnav">
@@ -25,7 +25,7 @@
         </li>
         <li class="nav__item hide-children">
             <span class="item__title">
-                Mais
+                <span>Mais</span>
                 <img
                     class="title__icon"
                     src="{{ asset('svgs/arrow-down.svg') }}"
@@ -42,7 +42,4 @@
             </ul>
         </li>
     </ul>
-    <a href="../web/src/views/welcome.php">
-        <img src="{{ asset('images/logo.png') }}">
-    </a>
 </nav>
