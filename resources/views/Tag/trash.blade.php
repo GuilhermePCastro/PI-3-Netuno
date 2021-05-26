@@ -19,12 +19,9 @@
     </script>
 </head>
 <body>
-  <header>
-    <div class="bg-blue">
-    </div>
-    <div class="bg-yellow">
-    </div>
-  </header>
+    <header class=>
+        @include('layouts.headerdashboard')
+    </header>
   <main class="main">
     @include('layouts.menu')
     <section class="main__page-content right-container">
@@ -32,7 +29,6 @@
         <h1 class="title__text">Tags</h1>
         <a href="{{ Route('tag.create') }}">
           <button type="button" class="title__include">
-            <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
             Incluir Registro
           </button>
         </a>
@@ -62,7 +58,7 @@
           <input name="nome" type="text" class="input-container__input">
         </label>
         <button type="submit" class="inputs__search">
-          <img  src="{{ asset('svgs/search-icon.svg') }}" alt="buscar">
+
           Buscar
         </button>
       </form>
@@ -78,12 +74,7 @@
                 <td>{{ $t-> id }}</td>
                 <td>{{ $t-> tag_nome }}</td>
                 <td>
-                    <a href="#" >
-                        <button class='table__button table__edit' type='button'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                            View
-                        </button>
-                    </a>
+
 
                     <form style="display: inline;" method="POST" action="{{route('tag.restore', $t->id) }}" onsubmit="return restaurar();">
                         @method('PATCH')

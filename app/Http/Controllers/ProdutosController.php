@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProdutosController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');
-    }
 
     public function index(){
         return view('produto.index')->with(['produtos'=>Produto::all(),'categories'=>Category::all()]);
@@ -128,6 +125,11 @@ class ProdutosController extends Controller
 
         session() -> flash('valido', "Produto $produto->id foi restaurado com sucesso!");
         return redirect(route('produto.trash'));
+    }
+
+    public function search(Request $request){
+        $produtos = Produto::where('ds_nome','like', '%' . $request->search . '%')->paginate(8);
+        return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search]);
     }
 
 }

@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 //Acesso somente para os Admins
 Route::group(['middleware' => 'IsAdmin'], function(){
 
@@ -36,14 +37,18 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
 
     //tags
-    Route::resource('/tag', TagController::class);
+    Route::resource('/tag', TagController::class, ['except' => ['show']]);
     Route::get('/lixeira/tag', [TagController::class, 'trash'])->name('tag.trash');
     Route::patch('/tag/restaura/{id}', [TagController::class, 'restore'])->name('tag.restore');
 
     //Categorias
-    Route::resource('/category', CategoryController::class);
+    Route::resource('/category', CategoryController::class, ['except' => ['show']]);
     Route::get('/lixeira/category', [CategoryController::class, 'trash'])->name('category.trash');
     Route::patch('/category/restaura/{id}', [CategoryController::class, 'restore'])->name('category.restore');
+
+    //Cliente
+    Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');
+    Route::patch('/cliente/restaura/{id}', [ClienteController::class, 'restore'])->name('cliente.restore');
 });
 
 //Acesso só de quem está logado
@@ -61,19 +66,11 @@ Route::group(['middleware' => 'auth'], function(){
 
     //Cliente
     Route::resource('/cliente', ClienteController::class);
-    Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');
-    Route::patch('/cliente/restaura/{id}', [ClienteController::class, 'restore'])->name('cliente.restore');
 });
 
-//Coisas que todos podem acessar (Sendo Admin ou não)
+//Coisas que todos podem acessar
 Route::resource('/produto', ProdutosController::class, ['only' => ['show']]);
 Route::resource('/tag', TagController::class, ['only' => ['show']]);
 Route::resource('/category', CategoryController::class, ['only' => ['show']]);
+Route::get('/search', [ProdutosController::class, 'search'])->name('produto.search');
 
-Route::get('/dashboard', function () {
-    return view('cliente.show');
-});
-
-Route::get('/perfil', function () {
-    return view('cliente.create');
-});

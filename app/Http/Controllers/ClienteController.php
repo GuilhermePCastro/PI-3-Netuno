@@ -8,9 +8,6 @@ use App\Models\User;
 
 class ClienteController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');
-    }
 
     public function index(){
         return view('cliente.index')->with('clientes', Cliente::all());
@@ -49,7 +46,6 @@ class ClienteController extends Controller
 
     public function update(Request $request, Cliente $cliente){
         $cliente->update([
-            'ds_cpf'        => $request->ds_cpf,
             'ds_celular'    => $request->ds_celular,
             'ds_endereco'   => $request->ds_endereco,
             'ds_numero'     => $request->ds_numero,

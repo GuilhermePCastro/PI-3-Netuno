@@ -3,7 +3,7 @@
 <head>
     @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/home-filtro.css') }}">
-    <title>{{ $tag->name }}</title>
+    <title>Netuno</title>
 </head>
 <body class="dsk-container-4x25">
     <header>
@@ -21,9 +21,9 @@
 
     <div class=" mt-4 row m-0 justify-content-center">
         <div class=" dsk-container-4x25">
-            <div class=" row m-0 my-3">
+            <div class="row m-0 my-3">
                 <div class="dsk-container-4x1"></div>
-                <h2 class="m-0 text-uppercase text-h2 ">{{ $tag->tag_nome }}</h2>
+                <h2 class="m-0 text-uppercase text-h2 ">{{ $search }}</h2>
             </div>
             <p class="text-muted">{{ "Encontramos " . count($produtos) . " produtos"}}</p>
         </div>

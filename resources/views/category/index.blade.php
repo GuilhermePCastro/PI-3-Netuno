@@ -20,20 +20,16 @@
 </head>
 <body>
   <header>
-    <div class="bg-blue">
-    </div>
-    <div class="bg-yellow">
-    </div>
-  </header>
+        @include('layouts.headerdashboard')
+    </header>
   <main class="main">
     @include('layouts.menu')
-    
+
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Categoria</h1>
         <a href="{{ Route('category.create') }}">
           <button type="button" class="title__include">
-            <img src="{{ asset('svgs/plus-square.svg') }}" alt="+">
             Incluir Registro
           </button>
         </a>
@@ -71,30 +67,27 @@
           </select>
         </label>
         <button type="submit" class="inputs__search">
-          <img  src="{{ asset('svgs/search-icon.svg') }}" alt="buscar">
+
           Buscar
         </button>
       </form>
 
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
-          <th>Cód.</th>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Ação</th>
+            <th></th>
+            <th>Cód.</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ação</th>
         </tr>
         @foreach($category as $cat)
             <tr>
-                <td>{{ $cat-> id }}</td>
+                <td>
+                    <a href="#">{{ $cat-> id }}</a>
+                </td>
                 <td>{{ $cat-> cate_nome }}</td>
                 <td>{{ $cat-> cate_descricao }}</td>
-                <td>
-                    <a href="#" >
-                        <button class='table__button table__edit' type='button'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                            View
-                        </button>
-                    </a>
+                <td style="text-align:center">
                     <a href="{{ route('category.edit', $cat->id) }}" >
                         <button class='table__button table__edit' type='button'>
                             <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
