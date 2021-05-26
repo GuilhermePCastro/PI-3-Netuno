@@ -11,6 +11,14 @@ body{
 }
 
 /* ----------- Produto ------------ */
+.v-100 {
+    min-height: 70vh;
+}
+
+.text-link {
+    font-weight: 500;
+    color: #007bff;
+}
 
 .produto {
     height: 45vh;
@@ -66,7 +74,7 @@ body{
 
 /* ---------- Footer ----------- */
 .footer-dark {
-    height: 100px;
+    height: 70px;
     background: #010101;
     width: 100%;
     position: absolute;
@@ -179,8 +187,11 @@ body{
 }
 
 @media (max-width: 1440px){
+    .v-100 {
+        min-height: calc(100vh - 210px);
+    }
     .footer-dark {
-        height: 120px;
+        height: 70px;
         background: #010101;
         width: 100%;
         position: relative;
@@ -245,7 +256,7 @@ body{
     }
 
     .footer-dark {
-        height: 150px;
+        height: 100px;
         background: #010101;
         width: 100%;
         position: relative;
