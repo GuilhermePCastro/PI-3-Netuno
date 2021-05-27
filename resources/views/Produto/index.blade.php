@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Clientes</title>
 
-
+  @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -53,18 +53,18 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
+      <form class="page-content__inputs inputs-group" action="{{ Route('produto.filtro') }}">
         <label class="input-container input-container-10">
           Código
-          <input name="codigo" type="text" class="input-container__input">
+          <input id="codigo" name="codigo" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-40">
           Nome
-          <input name="nome" type="text" class="input-container__input">
+          <input id="nome" name="nome" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-30">
           Categoria
-          <select name="category_id">
+          <select name="category_id" id="category_id">
                 <option value=""></option>
                 @foreach ($categories as $category )
                     <option value="{{$category->id}}">{{$category->cate_nome}}</option>
@@ -72,7 +72,6 @@
             </select>
         </label>
         <button type="submit" class="inputs__search">
-
           Buscar
         </button>
       </form>
@@ -111,6 +110,10 @@
             </tr>
         @endforeach
       </table>
+      <div class="mt-5 mb-5 d-flex justify-content-center">
+            {{ $produtos->withQueryString()->links()}}
+        </div>
+
     </section>
   </main>
 </body>

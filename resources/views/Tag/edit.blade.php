@@ -37,11 +37,6 @@
             </label>
           </div>
 
-          <label class="checkbox-container mt mb">
-            <input name="tg_inativo" type="checkbox"  id="" />
-            Inativo
-          </label>
-
           <button class="blue-button mr" type="submit">Salvar</button>
           <button class="white-button" type="button">Limpar</button>
 

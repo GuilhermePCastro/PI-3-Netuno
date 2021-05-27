@@ -11,7 +11,7 @@ class ProdutosController extends Controller
 {
 
     public function index(){
-        return view('produto.index')->with(['produtos'=>Produto::all(),'categories'=>Category::all()]);
+        return view('produto.index')->with(['produtos'=>Produto::paginate(5) ,'categories'=>Category::all()]);
     }
 
 
@@ -130,6 +130,24 @@ class ProdutosController extends Controller
     public function search(Request $request){
         $produtos = Produto::where('ds_nome','like', '%' . $request->search . '%')->paginate(8);
         return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search]);
+    }
+
+    public function filtro(Request $request){
+        $produtos = Produto::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $produtos = $produtos->where('ds_nome','like', '%' . $request->nome . '%');
+        }
+
+        if($request->codigo != ''){
+            $produtos = $produtos->where('id','=', $request->codigo );
+        }
+
+        if($request->category_id != ''){
+            $produtos = $produtos->where('category_id','=', $request->category_id );
+        }
+
+        return view('produto.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
     }
 
 }

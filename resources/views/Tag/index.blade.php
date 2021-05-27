@@ -6,6 +6,7 @@
   <title>Página de Clientes</title>
   <script src="{{ asset('js/menu.js') }}"></script>
 
+  @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">

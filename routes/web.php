@@ -35,6 +35,7 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     Route::resource('/produto', ProdutosController::class, ['except' => ['show']]);
     Route::get('/lixeira/produto', [ProdutosController::class, 'trash']) -> name('produto.trash');
     Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
+    Route::get('/produto/filtro', [ProdutosController::class, 'filtro'])->name('produto.filtro');
 
     //tags
     Route::resource('/tag', TagController::class, ['except' => ['show']]);
