@@ -154,6 +154,11 @@
 
 @media (max-width: 900px){
 
+    .sm-none{
+        display: none;
+    }
+
+
     /* ----------- Header -------------*/
     .sm-container-4x1{
         width: 4vw;

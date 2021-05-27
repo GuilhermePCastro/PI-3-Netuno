@@ -23,7 +23,7 @@
                         <div class="col-md-12 mx-0">
                             <form id="msform">
                                 <!-- progressbar -->
-                                <ul class=" row justify-content-center" id="progressbar">
+                                <ul class="reus bg-light row justify-content-center" id="progressbar">
                                     <li id="personal" class=" active">
                                         <strong>Localização</strong>
                                     </li>

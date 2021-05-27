@@ -7,6 +7,15 @@ html {
     height: 100%
 }
 
+.reus {
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    max-width: 100%;
+    margin: auto;
+}
+
 .vah-100 {
     min-height: calc(100vh - 100px);
     height: 100%;
@@ -344,6 +353,8 @@ select.list-dt:focus {
 }
 
 @media (max-width: 900px){
+
+
 
     /* ----------- Header -------------*/
     .sm-container-4x1{
