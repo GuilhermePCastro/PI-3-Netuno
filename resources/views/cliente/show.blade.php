@@ -134,6 +134,7 @@
             </div>
 
         </main>
-        <footer class="mt-3"></footer>
+        <div class="footer-dark mt-5">
+        </div>
     </body>
 </html>

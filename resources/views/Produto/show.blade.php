@@ -7,16 +7,19 @@
 </head>
 <body class="dsk-container-4x25">
     <header>
-        @include('layouts.headernaologado')
-        <div class="header-secondary bg-light d-flex align-items-center">
-            <div class=" dsk-container-4x1"></div>
+        @include('layouts.headernaologado') 
+    </header>
+
+    <div class="header-secondary bg-light d-flex align-items-center mb-5">
+        <div class=" dsk-container-4x1"></div>
             <div class=" py-2 dsk-container-2x4 sm-container-4x19">
                 <a class="m-0 h6" href="{{ url('/')}}">Home ></a>
                 <a class="m-0 text-sm h6" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->category->cate_nome}} ></a>
-                <span class="m-0 text-sm text-link" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->ds_nome}}</span>
-            </div>
+            <span class="m-0 text-sm fw-bolder text-muted" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->ds_nome}}</span>
         </div>
-    </header>
+    </div>
+    
+    
 
     <!-- Mostrando mensagem na tela com a session -->
     @if(session()->has('success'))
@@ -35,7 +38,7 @@
             <div class=" col-12  col-md-7 col-xl-5 produto text-center p-3">
                 <img src="{{ asset($produto->hx_foto1) }}" alt="imagem">
             </div>
-            <div class=" col-12 bg-light col-md-4 col-xl-4 produto d-flex align-items-center">
+            <div class=" col-12 col-md-4 col-xl-4 produto d-flex align-items-center pb-1">
                 <div class="row m-0 w-100">
                     <div class=" col-12 text-center-sm">
                         <p class="mb-0 prod-desc-title text-uppercase">{{ $produto->ds_nome}}</p>
@@ -55,7 +58,7 @@
             <div class="mt-4 bg-light col-11 col-md-10 col-xl-9 p-3 ">
                 <div class=" row m-0 ">
                     <h3 class=" px-2 col-12">Descrição do Produto</h3>
-                    <p class=" px-2 colo-12 text-desc">{{ $produto->ds_descricao}}</p>
+                    <p class="  px-2 colo-12 ">{{ $produto->ds_descricao}}</p>
                 </div>
             </div>
         </div>

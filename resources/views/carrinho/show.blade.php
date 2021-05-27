@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     @include('layouts.head')
-    <title>Netuno</title>
+    <title>Carrinho</title>
     <link rel="stylesheet" href="{{ asset('css/carrinho.css')}}">
 </head>
 <body>
@@ -74,5 +74,8 @@
             </div>
         </div>
     </main>
+
+    <div class="footer-dark mt-5">
+    </div>
 </body>
 </html>
