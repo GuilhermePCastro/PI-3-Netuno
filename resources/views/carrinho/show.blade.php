@@ -31,7 +31,8 @@
                             <th></th>
                             <th>Qtd</th>
                             <th></th>
-                            <th>Preço</th>
+                            <th>Preço Uni.</th>
+                            <th>Preço Tot.</th>
                           </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,7 @@
                                 <button class=" btn btn-outline-warning"><i class="fas fa-plus"></i></button>
                             </td>
                             <td class="align-middle"><span class=" money">R$ </span>360</td>
+                            <td class="align-middle"><span class=" money">R$ </span>698</td>
                         </tr>
                         <tr class="h5" >
                             <td class="align-middle"><img class="img-lista" src="https://via.placeholder.com/400" alt="produto2"></td>
@@ -54,6 +56,7 @@
                                 <button class=" btn btn-outline-warning"><i class="fas fa-plus"></i></button>
                             </td>
                             <td class="align-middle"><span class=" money">R$ </span>95</td>
+                            <td class="align-middle"><span class=" money">R$ </span>698</td>
                         </tr>
                         <tr class="h5">
                             <td class="align-middle"><img class="img-lista" src="{{ asset('images/logo.png')}}" alt="produto3"></td>
@@ -63,6 +66,7 @@
                                 <button class=" btn btn-outline-warning"><i class="fas fa-minus"></i></button>
                                 <button class=" btn btn-outline-warning"><i class="fas fa-plus"></i></button>
                             </td>
+                            <td class="align-middle"><span class=" money">R$ </span>10</td>
                             <td class="align-middle"><span class=" money">R$ </span>698</td>
                         </tr>
                     </tbody>
