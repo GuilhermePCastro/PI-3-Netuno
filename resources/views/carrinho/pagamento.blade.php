@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     @include('layouts.head')
-    <title>Document</title>
+    <title>Netuno</title>
     <link rel="stylesheet" href="{{ asset('css/pagamento.css')}}">
     <script src="{{ asset('js/pagamento.js') }}"></script>
 </head>

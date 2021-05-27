@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     @include('layouts.head')
-    <title>Document</title>
+    <title>Netuno</title>
     <link rel="stylesheet" href="{{ asset('css/carrinho.css')}}">
 </head>
 <body>
