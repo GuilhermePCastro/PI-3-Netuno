@@ -41,11 +41,13 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     Route::resource('/tag', TagController::class, ['except' => ['show']]);
     Route::get('/lixeira/tag', [TagController::class, 'trash'])->name('tag.trash');
     Route::patch('/tag/restaura/{id}', [TagController::class, 'restore'])->name('tag.restore');
+    Route::get('/tag/filtro', [TagController::class, 'filtro'])->name('tag.filtro');
 
     //Categorias
     Route::resource('/category', CategoryController::class, ['except' => ['show']]);
     Route::get('/lixeira/category', [CategoryController::class, 'trash'])->name('category.trash');
     Route::patch('/category/restaura/{id}', [CategoryController::class, 'restore'])->name('category.restore');
+    Route::get('/category/filtro', [CategoryController::class, 'filtro'])->name('category.filtro');
 
     //Cliente
     Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');

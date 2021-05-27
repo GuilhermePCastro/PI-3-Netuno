@@ -50,22 +50,14 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
+      <form class="page-content__inputs inputs-group" action="{{ Route('category.filtro') }}">
         <label class="input-container input-container-10">
           Código
-          <input name="codigo" type="text" class="input-container__input">
+          <input id="codigo" name="codigo" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-40">
           Nome
-          <input name="nome" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-30">
-          categoria
-          <select name="category" id="" required>
-            <option value="0"></option>
-            <option value="1">Boneco</option>
-            <option value="2">Carro</option>
-          </select>
+          <input id="nome" name="nome" type="text" class="input-container__input">
         </label>
         <button type="submit" class="inputs__search">
 
@@ -75,7 +67,6 @@
 
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
-            <th></th>
             <th>Cód.</th>
             <th>Nome</th>
             <th>Descrição</th>
@@ -107,6 +98,9 @@
             </tr>
         @endforeach
       </table>
+      <div class="mt-5 mb-5 d-flex justify-content-center">
+        {{ $category->withQueryString()->links()}}
+        </div>
     </section>
   </main>
 </body>

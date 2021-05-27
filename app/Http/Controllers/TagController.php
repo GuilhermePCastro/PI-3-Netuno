@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('tag.index')->with('tag', Tag::all());
+        return view('tag.index')->with('tag', Tag::paginate(5));
     }
 
     /**
@@ -103,5 +103,19 @@ class TagController extends Controller
         session() -> flash('valido', "tag $tag->id foi restaurado com sucesso!");
         return redirect(route('tag.trash'));
 
+    }
+
+    public function filtro(Request $request){
+        $tags = Tag::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $tags = $tags->where('tag_nome','like', '%' . $request->nome . '%');
+        }
+
+        if($request->codigo != ''){
+            $tags = $tags->where('id','=', $request->codigo );
+        }
+
+        return view('tag.index')->with(['tag' => $tags->paginate(5)]);
     }
 }

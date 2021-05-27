@@ -49,7 +49,7 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
+      <form class="page-content__inputs inputs-group" action="{{ Route('tag.filtro') }}">
         <label class="input-container input-container-10">
           Código
           <input name="codigo" type="text" class="input-container__input">
@@ -94,6 +94,9 @@
             </tr>
         @endforeach
       </table>
+      <div class="mt-5 mb-5 d-flex justify-content-center">
+        {{ $tag->withQueryString()->links()}}
+    </div>
     </section>
   </main>
 </body>

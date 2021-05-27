@@ -111,8 +111,8 @@
         @endforeach
       </table>
       <div class="mt-5 mb-5 d-flex justify-content-center">
-            {{ $produtos->withQueryString()->links()}}
-        </div>
+        {{ $produtos->withQueryString()->links()}}
+    </div>
 
     </section>
   </main>

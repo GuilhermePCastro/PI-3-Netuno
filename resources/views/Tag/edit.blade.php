@@ -6,6 +6,7 @@
     <title>Registro de Tags</title>
     <script src="../assets/js/menu.js"></script>
 
+    <script src="{{ asset('js/menu.js') }}"></script>
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
