@@ -75,7 +75,7 @@
         @foreach($category as $cat)
             <tr>
                 <td>
-                    <a href="#">{{ $cat-> id }}</a>
+                    <a href="{{ route('category.show', $cat->id) }}">{{ $cat-> id }}</a>
                 </td>
                 <td>{{ $cat-> cate_nome }}</td>
                 <td>{{ $cat-> cate_descricao }}</td>

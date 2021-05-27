@@ -11,10 +11,19 @@
 /* ------------- carrinho ------------- */
 .img-lista {
     height: 75px;
-    max-width: 75px;
+    width: 75px;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.nome-produto{
+    color:black;
+}
+
+.nome-produto:hover{
+    color:black;
 }
 
 
@@ -40,7 +49,7 @@
 }
 
 .text-final-money{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
