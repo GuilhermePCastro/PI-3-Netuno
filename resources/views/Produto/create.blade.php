@@ -80,10 +80,6 @@
               Foto Principal
               <input type="file" name='hx_foto1'/>
             </label>
-            <label class="input-container input-container">
-              Foto Secundaria
-              <input type="file" name='hx_foto2'/>
-            </label>
             <label class="input-container">
                 Descrição
                 <textarea name="ds_descricao" id="" cols="30" rows="10"></textarea>

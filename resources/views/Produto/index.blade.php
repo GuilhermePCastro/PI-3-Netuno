@@ -41,14 +41,14 @@
 
         <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('valido'))
-            <div class="valido">
+            <div class="valido mb-2">
                {{session()->get('valido')}}
             </div>
         @endif
 
             <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('invalido'))
-            <div class="invalido">
+            <div class="invalido mb-2">
                 {{session()->get('invalido')}}
             </div>
         @endif
@@ -86,7 +86,7 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
-                <td><img src="{{ asset($produto ->hx_foto1) }}"></td>
+                <td><img src="{{ asset($produto ->hx_foto1) }}" onclick="window.location.href = '{{ route('produto.show', $produto -> id) }}'"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
                 <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>

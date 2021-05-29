@@ -10,7 +10,7 @@ class ClienteController extends Controller
 {
 
     public function index(){
-        return view('cliente.index')->with('clientes', Cliente::all());
+        return view('cliente.index')->with('clientes', Cliente::paginate(5));
     }
 
     public function create(){
@@ -82,5 +82,42 @@ class ClienteController extends Controller
 
         session() -> flash('valido', "Cliente $cliente->id foi restaurado com sucesso!");
         return redirect(route('cliente.trash'));
+    }
+
+    public function tornarAdmin(int $id){
+
+        $cliente = Cliente::find($id);
+        $user = User::where('id', '=', $cliente->user_id)->first();
+        if(!$user->IsAdmin){
+
+            $user->update(['IsAdmin' => 1]);
+            session() -> flash('valido', "Cliente $cliente->id virou admin!");
+
+        }else{
+
+            $user->update(['IsAdmin' => 0]);
+            session() -> flash('valido', "Cliente $cliente->id não é mais admin!");
+
+        }
+
+        return redirect(route('cliente.index'));
+    }
+
+    public function filtro(Request $request){
+
+        $clientes = Cliente::where('id', '>', '0');
+
+        if($request->user != ''){
+            $clientes = $clientes->where('user_id','=', $request->user);
+        }
+
+        if($request->cpf != ''){
+
+            $clientes = $clientes->where('ds_cpf','=', $request->cpf);
+        }
+
+
+
+        return view('cliente.index')->with('clientes',  $clientes->paginate(5));
     }
 }

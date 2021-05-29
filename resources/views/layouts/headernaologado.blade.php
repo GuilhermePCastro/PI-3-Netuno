@@ -46,7 +46,7 @@
                 <!-- colocar aqui as informações do usuário -->
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @if (Auth()->user()->IsAdmin == 1)
-                        <a class="dropdown-item" href="{{ Route('produto.index') }}">Admin</a>
+                        <a class="dropdown-item" href="/dashboard">Admin</a>
                     @endif
                     @if (\App\Models\User::cliente())
                         <a class="dropdown-item" href="{{ route('cliente.show', \App\Models\User::cliente()->id )}} ">Perfil</a>

@@ -37,14 +37,14 @@
 
         <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('valido'))
-            <div class="valido">
-                {{session()->get('valido')}}
+            <div class="valido mb-2">
+               {{session()->get('valido')}}
             </div>
         @endif
 
             <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('invalido'))
-            <div class="invalido">
+            <div class="invalido mb-2">
                 {{session()->get('invalido')}}
             </div>
         @endif

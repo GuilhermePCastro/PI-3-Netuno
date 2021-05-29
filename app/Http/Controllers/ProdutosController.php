@@ -32,12 +32,6 @@ class ProdutosController extends Controller
             $foto1 = "storage/sem.jpg";
         }
 
-        if($request->hx_foto2){
-            $foto2 = "storage/" . $request->file('hx_foto2')->store('produtos');
-        }else{
-            $foto2 = "storage/sem.jpg";
-        }
-
 
         $produto = Produto::create([
             'ds_nome'       => $request->ds_nome,
@@ -47,8 +41,7 @@ class ProdutosController extends Controller
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
             'qt_estoquemax' => $request->qt_estoquemax,
-            'hx_foto1'      => $foto1,
-            'hx_foto2'      => $foto2
+            'hx_foto1'      => $foto1
 
         ]);
 
@@ -76,16 +69,6 @@ class ProdutosController extends Controller
             $foto1 = $produto->hx_foto1;
         }
 
-        if($request->hx_foto2){
-            $foto2 = "storage/" . $request->file('hx_foto2')->store('produtos');
-
-            //Só apaga se não for a padrão
-            if($produto->hx_foto2 != "storage/sem.jpg"){
-                Storage::delete(str_replace('storage/','',$produto->hx_foto2));
-            }
-        }else{
-            $foto2 = $produto->hx_foto2;
-        }
 
         $produto->update([
             'ds_nome'       => $request->ds_nome,
@@ -95,8 +78,7 @@ class ProdutosController extends Controller
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
             'qt_estoquemax' => $request->qt_estoquemax,
-            'hx_foto1'      => $foto1,
-            'hx_foto2'      => $foto2
+            'hx_foto1'      => $foto1
 
         ]);
 

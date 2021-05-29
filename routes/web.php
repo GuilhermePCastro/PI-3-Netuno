@@ -23,10 +23,6 @@ Route::get('/', function () {
     return view('homeProduto');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 
 //Acesso somente para os Admins
 Route::group(['middleware' => 'IsAdmin'], function(){
@@ -52,6 +48,14 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     //Cliente
     Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');
     Route::patch('/cliente/restaura/{id}', [ClienteController::class, 'restore'])->name('cliente.restore');
+    Route::get('/cliente/filtro', [ClienteController::class, 'filtro'])->name('cliente.filtro');
+    Route::get('/cliente/admin/{id}', [ClienteController::class, 'tornarAdmin'])->name('cliente.admin');
+
+    //dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
 });
 
 //Acesso só de quem está logado

@@ -7,7 +7,7 @@
 </head>
 <body class="dsk-container-4x25">
     <header>
-        @include('layouts.headernaologado') 
+        @include('layouts.headernaologado')
     </header>
 
     <div class="header-secondary bg-light d-flex align-items-center mb-5">
@@ -18,8 +18,8 @@
             <span class="m-0 text-sm fw-bolder text-muted" href="{{ route('category.show' , $produto->category->id)}}">{{ $produto->ds_nome}}</span>
         </div>
     </div>
-    
-    
+
+
 
     <!-- Mostrando mensagem na tela com a session -->
     @if(session()->has('success'))

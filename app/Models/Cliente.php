@@ -13,6 +13,10 @@ class Cliente extends Model
     protected $table = 'tb_cliente';
 
     public function usuario(){
-        return $this->hasMany(User::class);
+        return User::where('id','=',$this->user_id)->orderByRaw('created_at DESC')->first();
+    }
+
+    public static function ult10Clientes(){
+        return Cliente::all()->sortBy('created_at')->take(10);
     }
 }
