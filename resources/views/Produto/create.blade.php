@@ -48,9 +48,9 @@
             </label>
             </div>
             <div class="inputs-group">
-            <label class="input-container input-container-40">
+            <label class="input-container input-container-50">
               Tag*
-                <select name="tags[]" multiple>
+                <select class="input-mult" name="tags[]" multiple>
                         @foreach ($tags as $tag )
                             <option value="{{$tag->id}}">{{$tag->tag_nome}}</option>
                         @endforeach
@@ -61,7 +61,7 @@
           <div class="inputs-group">
             <label class="input-container input-container-25">
               Preço venda*
-              <input min='0' name="vl_produto" type="number" required/>
+              <input min='0' step=".01" name="vl_produto" type="number" required/>
             </label>
             <label class="input-container input-container-25">
               Estoque mínimo

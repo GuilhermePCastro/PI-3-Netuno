@@ -66,6 +66,8 @@
 .input-container textarea:disabled {
     background: #f1f1f1;
 }
+
+
 .input-container textarea {
     min-height: 120px;
     resize: vertical;
@@ -157,4 +159,8 @@ button:active,
     font-size: 18px;
     border-radius: 20px;
     color: #098f14;
+}
+
+.input-mult{
+    height: 80px !important;
 }

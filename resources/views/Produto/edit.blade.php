@@ -67,7 +67,7 @@
           <div class="inputs-group">
             <label class="input-container input-container-25">
               Preço venda*
-              <input min='0' name="vl_produto" type="number" value="{{ $produto->vl_produto}}" required/>
+              <input min='0' step=".01" name="vl_produto" type="number" value="{{ $produto->vl_produto}}" required/>
             </label>
             <label class="input-container input-container-25">
               Estoque mínimo

@@ -175,6 +175,17 @@ body{
     margin-bottom: 12px;
 }
 
+
+/* ---------- Footer ----------- */
+.footer-dark {
+    height: 70px;
+    background: #010101;
+    width: 100%;
+    bottom: 0;
+}
+
+/* --------  ----------*/
+
 @media (max-width: 900px){
 
     /* ----------- Header -------------*/

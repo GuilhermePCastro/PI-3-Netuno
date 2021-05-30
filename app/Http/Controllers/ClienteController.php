@@ -87,6 +87,7 @@ class ClienteController extends Controller
     public function tornarAdmin(int $id){
 
         $cliente = Cliente::find($id);
+
         $user = User::where('id', '=', $cliente->user_id)->first();
         if(!$user->IsAdmin){
 

@@ -10,7 +10,7 @@
         @include('layouts.headernaologado')
     </header>
 
-    <div class="header-secondary bg-light d-flex align-items-center mb-5">
+    <div class="header-secondary bg-light d-flex align-items-center">
         <div class=" dsk-container-4x1"></div>
             <div class=" py-2 dsk-container-2x4 sm-container-4x19">
                 <a class="m-0 h6" href="{{ url('/')}}">Home ></a>
@@ -31,7 +31,7 @@
     @endif
 
 
-<div class=" row mx-0 justify-content-center ">
+<div class=" row mx-0 justify-content-center mt-4 ">
 
     <div class=" w-100 p-0 v-100">
         <div class=" row m-0  justify-content-center">
@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="mt-4 bg-light col-11 col-md-10 col-xl-9 p-3 ">
+            <div class="mt-5 bg-light col-11 col-md-10 col-xl-9 p-3 ">
                 <div class=" row m-0 ">
                     <h3 class=" px-2 col-12">Descrição do Produto</h3>
                     <p class="  px-2 colo-12 ">{{ $produto->ds_descricao}}</p>
@@ -65,7 +65,7 @@
     </div>
 
 
-    <div class=" footer-dark">
+    <div class="mt-3 footer-dark">
     </div>
 
 </div>

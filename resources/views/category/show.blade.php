@@ -3,7 +3,7 @@
 <head>
     @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/home-filtro.css') }}">
-    <title>{{ $category->cate_nome }}</title>
+    <title>{{ $category->cate_nome }} - Netuno</title>
 </head>
 <body class="dsk-container-4x25">
     <header>
@@ -54,6 +54,9 @@
         <div class="mt-5 mb-4 d-flex justify-content-center">
             {{ $produtos->links()}}
         </div>
+    </div>
+
+    <div class="mt-3 footer-dark">
     </div>
 </body>
 </html>
