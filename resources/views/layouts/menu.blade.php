@@ -33,7 +33,7 @@
                     <a class="item__link" href="{{ Route('cliente.index') }}">Clientes</a>
                 </li>
                 <li class="subnav__item">
-                    <a class="item__link" href="{{ Route('category.index') }}">Pedidos</a>
+                    <a class="item__link" href="{{ Route('pedido.index') }}">Pedidos</a>
                 </li>
             </ul>
         </li>

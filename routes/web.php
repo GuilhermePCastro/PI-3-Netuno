@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +57,8 @@ Route::group(['middleware' => 'IsAdmin'], function(){
         return view('dashboard');
     })->name('dashboard');
 
+
+
 });
 
 //Acesso só de quem está logado
@@ -73,6 +76,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     //Cliente
     Route::resource('/cliente', ClienteController::class);
+
+    //pedido
+    Route::resource('/pedido', PedidoController::class);
+
 });
 
 //Coisas que todos podem acessar

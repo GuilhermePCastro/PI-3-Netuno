@@ -25,29 +25,22 @@
 
     <section class="main__page-content right-container">
 
-        <h2>Últimos 10 clientes</h2>
+        <h2>Últimos 5 pedidos</h2>
         <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
             <tr align="center">
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Celular</th>
-            <th>Admin</th>
-            <th>Ação</th>
+            <th>Cód.</th>
+            <th>CPF Cliente</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Total</th>
             </tr>
-            @foreach(\App\Models\Cliente::ult10Clientes() as $cliente)
+            @foreach(\App\Models\Pedido::ult5pedidos() as $pedido)
                 <tr>
-                    <td>{{ $cliente->usuario()->name }}</td>
-                    <td>{{ $cliente->ds_cpf }}</td>
-                    <td>{{ $cliente->ds_celular }}</td>
-                    <td>{{ $cliente->usuario()->isAdmin == 1 ? 'Sim' : 'Não' }}</td>
-                    <td>
-                        <a href="{{ route('produto.edit', $cliente->id) }}" >
-                            <button class='table__button table__edit' type='button'>
-                                <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                                Vizualizar
-                            </button>
-                        </a>
-                    </td>
+                    <td>{{ $pedido -> id }}</td>
+                    <td>{{ $pedido->cliente()->ds_cpf }}</td>
+                    <td>{{ $pedido -> ds_status }}</td>
+                    <td>{{ $pedido -> created_at }}</td>
+                    <td>{{ number_format($pedido -> vl_total, 2, ',', '.') }}</td>
                 </tr>
             @endforeach
         </table>
