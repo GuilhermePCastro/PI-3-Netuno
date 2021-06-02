@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Clientes</title>
 
-
+  @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -41,30 +41,30 @@
 
         <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('valido'))
-            <div class="valido">
+            <div class="valido mb-2">
                {{session()->get('valido')}}
             </div>
         @endif
 
             <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('invalido'))
-            <div class="invalido">
+            <div class="invalido mb-2">
                 {{session()->get('invalido')}}
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
+      <form class="page-content__inputs inputs-group" action="{{ Route('produto.filtro') }}">
         <label class="input-container input-container-10">
           Código
-          <input name="codigo" type="text" class="input-container__input">
+          <input id="codigo" name="codigo" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-40">
           Nome
-          <input name="nome" type="text" class="input-container__input">
+          <input id="nome" name="nome" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-30">
           Categoria
-          <select name="category_id">
+          <select name="category_id" id="category_id">
                 <option value=""></option>
                 @foreach ($categories as $category )
                     <option value="{{$category->id}}">{{$category->cate_nome}}</option>
@@ -72,7 +72,6 @@
             </select>
         </label>
         <button type="submit" class="inputs__search">
-
           Buscar
         </button>
       </form>
@@ -87,7 +86,7 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
-                <td><img src="{{ asset($produto ->hx_foto1) }}"></td>
+                <td><img src="{{ asset($produto ->hx_foto1) }}" onclick="window.location.href = '{{ route('produto.show', $produto -> id) }}'"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
                 <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>
@@ -111,6 +110,10 @@
             </tr>
         @endforeach
       </table>
+      <div class="mt-5 mb-5 d-flex justify-content-center">
+        {{ $produtos->withQueryString()->links()}}
+    </div>
+
     </section>
   </main>
 </body>

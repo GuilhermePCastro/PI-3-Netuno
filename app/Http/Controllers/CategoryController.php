@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
 
     public function index(){
-        return view('category.index')->with('category', Category::all());
+        return view('category.index')->with('category', Category::paginate(5));
     }
 
     public function create(){
@@ -73,6 +73,20 @@ class CategoryController extends Controller
 
         session() -> flash('valido', "category $category->id foi restaurado com sucesso!");
         return redirect(route('category.trash'));
+    }
+
+    public function filtro(Request $request){
+        $categories = Category::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $categories = $categories->where('cate_nome','like', '%' . $request->nome . '%');
+        }
+
+        if($request->codigo != ''){
+            $categories = $categories->where('id','=', $request->codigo );
+        }
+
+        return view('category.index')->with(['category' => $categories->paginate(5)]);
     }
 
 }

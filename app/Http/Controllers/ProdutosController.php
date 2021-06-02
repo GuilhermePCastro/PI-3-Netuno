@@ -11,7 +11,7 @@ class ProdutosController extends Controller
 {
 
     public function index(){
-        return view('produto.index')->with(['produtos'=>Produto::all(),'categories'=>Category::all()]);
+        return view('produto.index')->with(['produtos'=>Produto::paginate(5) ,'categories'=>Category::all()]);
     }
 
 
@@ -32,12 +32,6 @@ class ProdutosController extends Controller
             $foto1 = "storage/sem.jpg";
         }
 
-        if($request->hx_foto2){
-            $foto2 = "storage/" . $request->file('hx_foto2')->store('produtos');
-        }else{
-            $foto2 = "storage/sem.jpg";
-        }
-
 
         $produto = Produto::create([
             'ds_nome'       => $request->ds_nome,
@@ -47,8 +41,7 @@ class ProdutosController extends Controller
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
             'qt_estoquemax' => $request->qt_estoquemax,
-            'hx_foto1'      => $foto1,
-            'hx_foto2'      => $foto2
+            'hx_foto1'      => $foto1
 
         ]);
 
@@ -76,16 +69,6 @@ class ProdutosController extends Controller
             $foto1 = $produto->hx_foto1;
         }
 
-        if($request->hx_foto2){
-            $foto2 = "storage/" . $request->file('hx_foto2')->store('produtos');
-
-            //Só apaga se não for a padrão
-            if($produto->hx_foto2 != "storage/sem.jpg"){
-                Storage::delete(str_replace('storage/','',$produto->hx_foto2));
-            }
-        }else{
-            $foto2 = $produto->hx_foto2;
-        }
 
         $produto->update([
             'ds_nome'       => $request->ds_nome,
@@ -95,8 +78,7 @@ class ProdutosController extends Controller
             'qt_estoque'    => $request->qt_estoque,
             'qt_estoquemin' => $request->qt_estoquemin,
             'qt_estoquemax' => $request->qt_estoquemax,
-            'hx_foto1'      => $foto1,
-            'hx_foto2'      => $foto2
+            'hx_foto1'      => $foto1
 
         ]);
 
@@ -130,6 +112,24 @@ class ProdutosController extends Controller
     public function search(Request $request){
         $produtos = Produto::where('ds_nome','like', '%' . $request->search . '%')->paginate(8);
         return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search]);
+    }
+
+    public function filtro(Request $request){
+        $produtos = Produto::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $produtos = $produtos->where('ds_nome','like', '%' . $request->nome . '%');
+        }
+
+        if($request->codigo != ''){
+            $produtos = $produtos->where('id','=', $request->codigo );
+        }
+
+        if($request->category_id != ''){
+            $produtos = $produtos->where('category_id','=', $request->category_id );
+        }
+
+        return view('produto.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
     }
 
 }

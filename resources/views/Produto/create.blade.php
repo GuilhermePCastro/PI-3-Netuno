@@ -24,7 +24,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb ">Produtos</h1>
+          <h1 class="page-title mt mb ">Produtos</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('produto.store') }}" enctype="multipart/form-data">
@@ -48,9 +48,9 @@
             </label>
             </div>
             <div class="inputs-group">
-            <label class="input-container input-container-40">
+            <label class="input-container input-container-50">
               Tag*
-                <select name="tags[]" multiple>
+                <select class="input-mult" name="tags[]" multiple>
                         @foreach ($tags as $tag )
                             <option value="{{$tag->id}}">{{$tag->tag_nome}}</option>
                         @endforeach
@@ -61,7 +61,7 @@
           <div class="inputs-group">
             <label class="input-container input-container-25">
               Preço venda*
-              <input min='0' name="vl_produto" type="number" required/>
+              <input min='0' step=".01" name="vl_produto" type="number" required/>
             </label>
             <label class="input-container input-container-25">
               Estoque mínimo
@@ -79,10 +79,6 @@
             <label class="input-container input-container">
               Foto Principal
               <input type="file" name='hx_foto1'/>
-            </label>
-            <label class="input-container input-container">
-              Foto Secundaria
-              <input type="file" name='hx_foto2'/>
             </label>
             <label class="input-container">
                 Descrição

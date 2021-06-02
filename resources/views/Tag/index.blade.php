@@ -6,6 +6,7 @@
   <title>Página de Clientes</title>
   <script src="{{ asset('js/menu.js') }}"></script>
 
+  @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -36,19 +37,19 @@
 
         <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('valido'))
-            <div class="valido">
-                {{session()->get('valido')}}
+            <div class="valido mb-2">
+               {{session()->get('valido')}}
             </div>
         @endif
 
             <!-- Mostrando mensagem na tela com a session -->
         @if(session()->has('invalido'))
-            <div class="invalido">
+            <div class="invalido mb-2">
                 {{session()->get('invalido')}}
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
+      <form class="page-content__inputs inputs-group" action="{{ Route('tag.filtro') }}">
         <label class="input-container input-container-10">
           Código
           <input name="codigo" type="text" class="input-container__input">
@@ -93,6 +94,9 @@
             </tr>
         @endforeach
       </table>
+      <div class="mt-5 mb-5 d-flex justify-content-center">
+        {{ $tag->withQueryString()->links()}}
+    </div>
     </section>
   </main>
 </body>

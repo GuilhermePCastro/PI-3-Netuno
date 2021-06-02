@@ -26,7 +26,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Categorias</h1>
+          <h1 class="page-title mt mb">Categorias</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('category.update', $category->id) }}">
@@ -44,11 +44,6 @@
               <input name="cate_descricao" type="text" value="{{ $category->cate_descricao }}" required/>
             </label>
           </div>
-
-          <label class="checkbox-container mt mb">
-            <input name="tg_inativo" type="checkbox"  id="" />
-            Inativo
-          </label>
 
           <button class="blue-button mr" type="submit">Salvar</button>
           <button class="white-button" type="button">Limpar</button>

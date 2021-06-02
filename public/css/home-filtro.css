@@ -57,6 +57,16 @@ body{
     border-radius: 0 0 0.5rem 0.5rem;
 }
 
+/* ---------- Footer ----------- */
+.footer-dark {
+    height: 70px;
+    background: #010101;
+    width: 100%;
+    bottom: 0;
+}
+
+/* --------  ----------*/
+
 /* ------ Banner -------*/
 .img-banner img {
     max-height: 200px;

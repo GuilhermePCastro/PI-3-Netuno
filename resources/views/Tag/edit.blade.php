@@ -6,6 +6,7 @@
     <title>Registro de Tags</title>
     <script src="../assets/js/menu.js"></script>
 
+    <script src="{{ asset('js/menu.js') }}"></script>
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -24,7 +25,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Tags</h1>
+          <h1 class="page-title mt mb">Tags</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('tag.update', $tag->id) }}">
@@ -36,11 +37,6 @@
               <input name="tag_nome" type="text" value="{{ $tag->tag_nome }}" required/>
             </label>
           </div>
-
-          <label class="checkbox-container mt mb">
-            <input name="tg_inativo" type="checkbox"  id="" />
-            Inativo
-          </label>
 
           <button class="blue-button mr" type="submit">Salvar</button>
           <button class="white-button" type="button">Limpar</button>

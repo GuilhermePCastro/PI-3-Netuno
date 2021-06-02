@@ -15,4 +15,12 @@ class Pedido extends Model
     public function itens(){
         return PedidoItem::where('pedido_id','=', $this->id)->get();
     }
+
+    public function cliente(){
+        return Cliente::where('id','=', $this->id)->get();
+    }
+
+    public static function ult5pedidos(){
+        return Pedido::all()->sortBy('created_at')->take(5);
+    }
 }

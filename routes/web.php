@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +24,6 @@ Route::get('/', function () {
     return view('homeProduto');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 
 //Acesso somente para os Admins
 Route::group(['middleware' => 'IsAdmin'], function(){
@@ -35,20 +32,33 @@ Route::group(['middleware' => 'IsAdmin'], function(){
     Route::resource('/produto', ProdutosController::class, ['except' => ['show']]);
     Route::get('/lixeira/produto', [ProdutosController::class, 'trash']) -> name('produto.trash');
     Route::patch('/produto/restaura/{id}', [ProdutosController::class, 'restore']) -> name('produto.restore');
+    Route::get('/produto/filtro', [ProdutosController::class, 'filtro'])->name('produto.filtro');
 
     //tags
     Route::resource('/tag', TagController::class, ['except' => ['show']]);
     Route::get('/lixeira/tag', [TagController::class, 'trash'])->name('tag.trash');
     Route::patch('/tag/restaura/{id}', [TagController::class, 'restore'])->name('tag.restore');
+    Route::get('/tag/filtro', [TagController::class, 'filtro'])->name('tag.filtro');
 
     //Categorias
     Route::resource('/category', CategoryController::class, ['except' => ['show']]);
     Route::get('/lixeira/category', [CategoryController::class, 'trash'])->name('category.trash');
     Route::patch('/category/restaura/{id}', [CategoryController::class, 'restore'])->name('category.restore');
+    Route::get('/category/filtro', [CategoryController::class, 'filtro'])->name('category.filtro');
 
     //Cliente
     Route::get('/lixeira/cliente', [ClienteController::class, 'trash'])->name('cliente.trash');
     Route::patch('/cliente/restaura/{id}', [ClienteController::class, 'restore'])->name('cliente.restore');
+    Route::get('/cliente/filtro', [ClienteController::class, 'filtro'])->name('cliente.filtro');
+    Route::get('/cliente/admin/{id}', [ClienteController::class, 'tornarAdmin'])->name('cliente.admin');
+
+    //dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+
+
 });
 
 //Acesso só de quem está logado
@@ -66,6 +76,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     //Cliente
     Route::resource('/cliente', ClienteController::class);
+
+    //pedido
+    Route::resource('/pedido', PedidoController::class);
+
 });
 
 //Coisas que todos podem acessar

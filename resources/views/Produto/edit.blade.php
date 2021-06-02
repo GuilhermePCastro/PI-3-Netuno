@@ -26,7 +26,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Produtos(Alterar)</h1>
+          <h1 class="page-title mt mb">Produtos(Alterar)</h1>
         </div>
 
          <form class="page-content__inputs mb" method='POST'  action="{{ route('produto.update', $produto->id) }}" enctype="multipart/form-data">
@@ -67,7 +67,7 @@
           <div class="inputs-group">
             <label class="input-container input-container-25">
               Preço venda*
-              <input min='0' name="vl_produto" type="number" value="{{ $produto->vl_produto}}" required/>
+              <input min='0' step=".01" name="vl_produto" type="number" value="{{ $produto->vl_produto}}" required/>
             </label>
             <label class="input-container input-container-25">
               Estoque mínimo
@@ -86,10 +86,6 @@
           <label class="input-container input-container">
               Foto Principal
               <input type="file" name='hx_foto1'/>
-            </label>
-            <label class="input-container input-container">
-              Foto Secundaria
-              <input type="file" name='hx_foto2'/>
             </label>
           <label class="input-container">
             Descrição

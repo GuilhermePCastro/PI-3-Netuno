@@ -24,7 +24,7 @@ class PedidoController extends Controller
             'ds_cep' => $request->ds_cep,
             'ds_cidade' => $request->ds_cidade,
             'ds_estado' => $request->ds_estado,
-            'cd_cartao' => substr($request->'nome do campo do cartão',-4),
+            'cd_cartao' => substr($request->nr_cartao,-4),
             'vl_total' => $request->vl_total,
             'nr_parcela' => $request->nr_parcela,
             'vl_parcela' => $request->vl_total/$request->nr_parcela,
@@ -44,7 +44,23 @@ class PedidoController extends Controller
         return redirect(route('pedido.show'));
     }
 
-    public function show(){
-        return view('pedido.show');
+    public function show(Pedido $pedido){
+        return view('pedido.show')->with(['produto' => $produto, 'itens' => $produto->itens()]);
     }
+
+    public function update(Request $request, Pedido $pedido){
+
+        $pedido->update([
+            'ds_status' => $request->ds_status,
+        ]);
+
+        //Para dar um retorno para o usuário
+        session() -> flash('valido', "Pedido $pedido->id foi atualziado com sucesso!");
+        return redirect(route('pedido.index'));
+    }
+
+    public function index(){
+        return view('pedido.index')->with(['pedidos'=>Pedido::paginate(5)]);
+    }
+
 }
