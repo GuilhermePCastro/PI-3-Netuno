@@ -26,7 +26,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Produtos(Alterar)</h1>
+          <h1 class="page-title mt mb">Produtos(Alterar)</h1>
         </div>
 
          <form class="page-content__inputs mb" method='POST'  action="{{ route('produto.update', $produto->id) }}" enctype="multipart/form-data">

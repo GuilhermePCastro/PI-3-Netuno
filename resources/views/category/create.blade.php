@@ -24,7 +24,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mb">Categorias</h1>
+          <h1 class="page-title mt mb">Categorias</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('category.store') }}">
