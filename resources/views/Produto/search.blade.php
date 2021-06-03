@@ -25,7 +25,10 @@
                 <div class="dsk-container-4x1"></div>
                 <h2 class="m-0 text-uppercase text-h2 ">{{ $search }}</h2>
             </div>
-            <p class="text-muted">{{ "Encontramos " . count($produtos) . " produtos"}}</p>
+            <div class="row m-0">
+                <div class="dsk-container-4x1"></div>
+                <p class="text-muted">{{ "Encontramos " . count($produtos) . " produtos"}}</p>
+            </div>
         </div>
     </div>
 
