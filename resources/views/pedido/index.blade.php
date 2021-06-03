@@ -48,7 +48,7 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group" action="{{ Route('produto.filtro') }}">
+      <form class="page-content__inputs inputs-group" action="{{ Route('pedido.filtro') }}">
         <label class="input-container input-container-10">
           Código
           <input id="codigo" name="codigo" type="text" class="input-container__input">

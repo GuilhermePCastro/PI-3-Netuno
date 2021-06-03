@@ -63,4 +63,19 @@ class PedidoController extends Controller
         return view('pedido.index')->with(['pedidos'=>Pedido::paginate(5)]);
     }
 
+    public function filtro(Request $request){
+        $pedidos = Pedido::where('id', '>', '0');
+
+        if($request->codigo != ''){
+            $pedidos = $pedidos->where('id','=', $request->codigo );
+        }
+
+        if($request->cpf != ''){
+            $cliente = Cliente::where('ds_cpf','=', $request->cpf)->first();
+            $produtos = $produtos->where('cliente_id','=', $cliente->id );
+        }
+
+        return view('produto.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
+    }
+
 }

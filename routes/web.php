@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     //pedido
     Route::resource('/pedido', PedidoController::class);
+    Route::get('/pedido/filtro', [PedidoController::class, 'filtro'])->name('pedido.filtro');
 
 });
 
