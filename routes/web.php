@@ -79,7 +79,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     //pedido
     Route::resource('/pedido', PedidoController::class);
+    Route::post('/pedido/add', [PedidoController::class, 'add'])->name('pedido.add');
     Route::get('/pedido/filtro', [PedidoController::class, 'filtro'])->name('pedido.filtro');
+    Route::get('/pedido/sucesso/{pedido}', [PedidoController::class, 'sucesso'])->name('pedido.sucesso');
 
 });
 

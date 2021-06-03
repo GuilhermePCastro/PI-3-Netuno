@@ -78,61 +78,67 @@
                     <h3 class="m-0 text-uppercase text-h3">Meus pedidos</h3>
 
                     <div class="accordion mt-4 mb-2 col-11 mx-auto ">
-
+                        @foreach (\App\Models\Pedido::where('user_id', '=', Auth()->user()->id)->orderBy('created_at','desc')->get() as $pedido)
                             <div class="accordion-item">
                                 <div class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#item-1">
-                                        Pedido Nº 1 - Data - Status
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#item-{{ $pedido->id }}">
+                                        Pedido Nº {{ $pedido->id }} - {{ date_format($pedido->created_at, 'd/m/Y') }} - {{ $pedido->ds_status }}
                                     </button>
                                 </div>
-                                <div class="accordion-collapse collapse" id="item-1">
+                                <div class="accordion-collapse collapse" id="item-{{ $pedido->id }}">
                                     <div class="mt-2 ml-4">
                                         <div>
-                                            <span class="titulo-campo">Entregue em: </span><span class="titulo-valor">SP</span>
+                                            <span class="titulo-campo">Entregue em: </span>
+                                            <span class="titulo-valor">
+                                                {{ $pedido->ds_endereco }}, {{ $pedido->ds_numero }} - {{ $pedido->ds_cidade }}, {{ $pedido->ds_uf }} - CEP {{ $pedido->ds_cep }}
+                                            </span>
                                         </div>
                                         <div>
-                                            <span class="titulo-campo">Pago com: </span><span class="titulo-valor">4450 - 2x de R$ 250,00</span>
+                                            <span class="titulo-campo">Pago com: </span>
+                                            <span class="titulo-valor">
+                                                Cartão {{ $pedido->cd_cartao }} - {{ $pedido->nr_parcela }}x de R$ {{ number_format($pedido->vl_total/$pedido->nr_parcela, 2, ',', '.') }}
+                                            </span>
                                         </div>
                                         <div>
-                                            <span class="titulo-campo">Total: </span><span class="titulo-valor">R$ 500,00</span>
+                                            <span class="titulo-campo">Total: </span>
+                                            <span class="titulo-valor">
+                                                R$ {{ number_format($pedido->vl_total, 2, ',', '.') }}
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="accordion-body">
-                                    <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Produto</th>
-                                                    <th></th>
-                                                    <th>Quantidade</th>
-                                                    <th>Valor Unit.</th>
-                                                    <th>Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
+                                    <div class="accordion-body mt-2">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover align-middle">
+                                            <span class="titulo-campo">Itens do Pedido </span>
+                                                <thead class="table-warning">
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>3</td>
-                                                        <td>4</td>
-                                                        <td>
-                                                            5
-                                                        </td>
-
+                                                        <th>Produto</th>
+                                                        <th></th>
+                                                        <th>Quantidade</th>
+                                                        <th>Valor Unit.</th>
+                                                        <th>Total</th>
                                                     </tr>
-
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($pedido->itens() as $item)
+                                                        <tr class="align-bottom">
+                                                            <td class="align-top"><img class="img-lista" src="{{ asset($item->produto()->hx_foto1) }}" alt="{{ $item->ds_nome }}" onclick="window.location.href = '{{ route('produto.show', $item->produto()->id) }}'"></td>
+                                                            <td class="align-top"><a class="nome-produto" href="{{ route('produto.show', $item->produto()->id) }}">{{ $item->produto()->ds_nome }}</a></td>
+                                                            <td class="align-top">{{ $item->qt_produto }}</td>
+                                                            <td class="align-top">{{ number_format($item->vl_produto, 2, ',', '.') }}</td>
+                                                            <td class="align-top">{{ number_format($item->vl_produto * $item->qt_produto, 2, ',', '.') }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                        @endforeach
                     </div>
-
-
                 </div>
             </div>
-
         </main>
         <div class="footer-dark mt-5">
         </div>

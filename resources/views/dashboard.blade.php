@@ -39,7 +39,7 @@
                     <td>{{ $pedido -> id }}</td>
                     <td>{{ $pedido->cliente()->ds_cpf }}</td>
                     <td>{{ $pedido -> ds_status }}</td>
-                    <td>{{ $pedido -> created_at }}</td>
+                    <td>{{ date_format($pedido->created_at, 'd/m/Y') }}</td>
                     <td>{{ number_format($pedido -> vl_total, 2, ',', '.') }}</td>
                 </tr>
             @endforeach

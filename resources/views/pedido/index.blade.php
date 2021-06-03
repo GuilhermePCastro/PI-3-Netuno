@@ -77,7 +77,7 @@
                 <td>{{ $pedido -> ds_status }}</td>
                 <td>{{ number_format($pedido -> vl_total, 2, ',', '.') }}</td>
                 <td>
-                    <a href="{{ route('produto.edit', $produto->id) }}" >
+                    <a href="{{ route('pedido.show', $pedido->id) }}" >
                         <button class='table__button table__edit' type='button'>
                             <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
                             Atualizar

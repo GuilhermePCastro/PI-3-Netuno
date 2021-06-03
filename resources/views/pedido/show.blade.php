@@ -25,15 +25,15 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mt mb ">Produtos</h1>
+          <h1 class="page-title mt mb ">Pedido</h1>
         </div>
 
-        <form class="page-content__inputs mb" method='POST'  action="{{ Route('produto.update') }}" enctype="multipart/form-data">@csrf
+        <form class="page-content__inputs mb" method='POST'  action="{{ Route('pedido.update', $pedido->id) }}" enctype="multipart/form-data">@csrf
             @method('PATCH')
           <div class="inputs-group mb">
             <label class="input-container input-container-60">
               Nome do cliente
-              <input name="ds_nome" type="text" value="{{ $pedido->cliente()->usuario()->name }}" disabled/>
+              <input name="ds_nome" type="text" value="{{ $pedido->usuario()->name }}" disabled/>
             </label>
             <label class="input-container input-container-40">
               CPF do cliente
@@ -44,7 +44,7 @@
           <div class="inputs-group mb">
             <label class="input-container input-container-60">
               E-mail
-              <input name="ds_email" type="text" value="{{ $pedido->cliente()->usuario->email }}" disabled/>
+              <input name="ds_email" type="text" value="{{ $pedido->usuario()->email }}" disabled/>
             </label>
             <label class="input-container input-container-40">
               Celular
@@ -79,22 +79,30 @@
           </div>
 
           <div class="inputs-group mb">
-            <label class="input-container input-container-25">
+            <label class="input-container input-container-20">
+              Data do Pedido
+              <input name="created-at" type="text" value="{{  date_format($pedido->created_at, 'd/m/Y') }}" disabled/>
+            </label>
+            <label class="input-container input-container-20">
               Ult. 4 dígitos do cartão
               <input name="cd_cartao" type="text" value="{{ $pedido->cd_cartao }}" disabled/>
             </label>
-            <label class="input-container input-container-25">
+            <label class="input-container input-container-20">
               Nr. Parcelas
               <input name="nr_parcela" type="text" value="{{ $pedido->nr_parcela }}" disabled/>
             </label>
-            <label class="input-container input-container-25">
+            <label class="input-container input-container-20">
               Valor Parcelas
               <input name="vl_parcela" type="text" value="{{ number_format($pedido->vl_total/$pedido->nr_parcela, 2, ',', '.') }}" disabled/>
             </label>
-            <label class="input-container input-container-25">
+            <label class="input-container input-container-20">
               Valor total
               <input name="vl_total" type="text" value="{{ number_format($pedido->vl_total, 2, ',', '.') }}" disabled/>
             </label>
+          </div>
+
+          <div class="page-content__title mt-5">
+            <h1 class="page-title mt mb ">Itens do Pedido</h1>
           </div>
 
           <div class="inputs-group mb">
@@ -111,9 +119,9 @@
                 <tbody>
                     @foreach($itens as $item)
                         <tr>
-                            <td>$item->produto()->id</td>
-                            <td>$item->produto()->ds_nome</td>
-                            <td>$item->qt_produto</td>
+                            <td>{{ $item->produto()->id }}</td>
+                            <td>{{ $item->produto()->ds_nome }}</td>
+                            <td>{{ $item->qt_produto }}</td>
                             <td>{{ number_format($item->vl_produto, 2, ',', '.') }}</td>
                             <td>{{ number_format($item->vl_produto * $item->qt_produto, 2, ',', '.') }}</td>
                         </tr>
@@ -122,26 +130,11 @@
             </table>
           </div>
 
-          <div class="inputs-group mb">
-            <label class="input-container input-container-25">
-              Ult. 4 dígitos do cartão
-              <input name="cd_cartao" type="text" disabled/>
-            </label>
-            <label class="input-container input-container-25">
-              Nr. Parcelas
-              <input name="nr_parcela" type="text" disabled/>
-            </label>
-            <label class="input-container input-container-25">
-              Valor Parcelas
-              <input name="vl_parcela" type="text" disabled/>
-            </label>
-            <label class="input-container input-container-25">
-              Valor total
-              <input name="vl_total" type="text" disabled/>
-            </label>
+          <div class="page-content__title mt-5">
+            <h1 class="page-title mt mb ">Status</h1>
           </div>
 
-          <div class="inputs-group mb">
+          <div class="inputs-group mb input-container input-container-40 mb-5">
                 <select name="ds_status">
                     <option value="Em Aberto" @if($pedido->ds_status == 'Em Aberto') selected @endif>Em Aberto</option>
                     <option value="Em Atendimento" @if($pedido->ds_status == 'Em Atendimento') selected @endif>Em Atendiemnto</option>
@@ -153,6 +146,7 @@
           </div>
 
           <button class="blue-button mr" type="submit">Atualizar Status</button>
+          <button class="white-button mr mb-5" onclick="window.location.href = '{{ route('pedido.index') }}'" type="button">Voltar</button>
 
         </form>
       </section>

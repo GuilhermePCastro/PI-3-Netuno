@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carrinho;
 use App\Models\Pedido;
+use App\Models\Cliente;
 use App\Models\PedidoItem;
 
 class PedidoController extends Controller
@@ -13,17 +14,18 @@ class PedidoController extends Controller
 
         //Pegando o carrinho
         $carrinho = Carrinho::where('user_id', '=', Auth()->user()->id)->get();
+        $cliente = Cliente::where('user_id', '=', Auth()->user()->id)->first();
 
         //Criar o pedido
         $pedido = Pedido::create([
             'user_id' => Auth()->user()->id,
-            'status' => 'Em aberto',
+            'ds_status' => 'Em aberto',
             'cliente_id' => $cliente->id,
             'ds_endereco' => $request->ds_endereco,
             'ds_numero' => $request->ds_numero,
             'ds_cep' => $request->ds_cep,
             'ds_cidade' => $request->ds_cidade,
-            'ds_estado' => $request->ds_estado,
+            'ds_uf' => $request->ds_uf,
             'cd_cartao' => substr($request->nr_cartao,-4),
             'vl_total' => $request->vl_total,
             'nr_parcela' => $request->nr_parcela,
@@ -41,11 +43,11 @@ class PedidoController extends Controller
             $item->delete();
         }
 
-        return redirect(route('pedido.show'));
+        return redirect(route('pedido.sucesso',$pedido));
     }
 
     public function show(Pedido $pedido){
-        return view('pedido.show')->with(['produto' => $produto, 'itens' => $produto->itens()]);
+        return view('pedido.show')->with(['pedido' => $pedido, 'itens' => $pedido->itens()]);
     }
 
     public function update(Request $request, Pedido $pedido){
@@ -75,7 +77,11 @@ class PedidoController extends Controller
             $produtos = $produtos->where('cliente_id','=', $cliente->id );
         }
 
-        return view('produto.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
+        return view('pedido.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
+    }
+
+    public function sucesso(Pedido $pedido){
+        return view('carrinho.sucesso')->with('pedido', $pedido);
     }
 
 }

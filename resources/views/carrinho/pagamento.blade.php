@@ -21,7 +21,8 @@
                     <p>Preencha as informações a baixo</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform">
+                            <form id="msform" method='POST' action="{{ Route('pedido.add') }}">
+                                @csrf
                                 <!-- progressbar -->
                                 <ul class="reus bg-light row justify-content-center" id="progressbar">
                                     <li id="personal" class=" active">
@@ -37,11 +38,11 @@
                                 <fieldset id="steep-first">
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Localização</h2>
-                                        <input type="text" value="{{ $cliente->ds_endereco }}" name="ds_endereco" placeholder="Endereço" require/>
-                                        <input type="text" value="{{ $cliente->ds_numero }}" name="ds_numero" placeholder="Número" require/>
-                                        <input type="text" value="{{ $cliente->ds_cep }}" name="ds_cep" placeholder="CEP (99999-999)" require pattern="[0-9]{5}-[0-9]{3}$"/>
-                                        <input type="text" value="{{ $cliente->ds_cidade }}" name="ds_cidade" placeholder="Cidade" require/>
-                                        <input type="text" value="{{ $cliente->ds_uf }}" name="ds_uf" placeholder="Estado" require />
+                                        <input type="text" value="{{ $cliente->ds_endereco }}" name="ds_endereco" placeholder="Endereço" required/>
+                                        <input type="text" value="{{ $cliente->ds_numero }}" name="ds_numero" placeholder="Número" required/>
+                                        <input type="text" value="{{ $cliente->ds_cep }}" name="ds_cep" placeholder="CEP (99999-999)" required pattern="[0-9]{5}-[0-9]{3}$"/>
+                                        <input type="text" value="{{ $cliente->ds_cidade }}" name="ds_cidade" placeholder="Cidade" required/>
+                                        <input type="text" value="{{ $cliente->ds_uf }}" name="ds_uf" placeholder="Estado" required />
                                     </div>
 
                                     <input type="button" name="next" class="next action-button" value="Próximo Passo" />
@@ -51,16 +52,17 @@
                                         <h2 class="fs-title">Informações de Pagamento</h2>
 
                                         <label class="pay">Nome no Cartão*</label>
-                                        <input type="text" name="holdername" placeholder="" require/>
+                                        <input type="text" name="holdername" placeholder="" required/>
                                         <div class="row">
                                             <div class="col-9"> <label class="pay">Número do cartão*</label>
-                                                <input type="text" name="nr_cartao" placeholder="" maxlength="12" pattern="[0-9]{12}$" require/>
+                                                <input type="text" name="nr_cartao" placeholder="" maxlength="12" pattern="[0-9]{12}$" required/>
                                             </div>
                                             <div class="col-3"> <label class="pay">CVC*</label>
-                                                <input type="password" name="cvcpwd"  maxlength="3" placeholder="***" pattern="[0-9]{3}$" require/>
+                                                <input type="password" name="cvcpwd"  maxlength="3" placeholder="***" pattern="[0-9]{3}$" required/>
                                             </div>
+                                            <input type="hidden" value="{{ \App\Models\Carrinho::totalCarrinho() }}" name="vl_total"/>
                                         </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
+                                        <select name="nr_parcela" id="nr_parcela" class="custom-select" id="inputGroupSelect01">
                                             <option value="1">1X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/1, 2, ',', '.') }}</option>
                                             <option value="2">2X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/2, 2, ',', '.') }}</option>
                                             <option value="3">3X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/3, 2, ',', '.') }}</option>
@@ -68,6 +70,7 @@
                                             <option value="5">5X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/5, 2, ',', '.') }}</option>
                                             <option value="6">6X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/6, 2, ',', '.') }}</option>
                                         </select>
+                                        <input type="hidden" value="{{ \App\Models\Carrinho::totalCarrinho() }}" name="vl_total" disabled/>
                                     </div>
                                     <input type="button" name="make_payment" class="next action-button" value="Próximo Passo" />
                                 </fieldset>
@@ -93,7 +96,7 @@
 
                                         </div>
                                     </div>
-                                    <button name="voltar" class="action-button">Confirmar</button>
+                                    <button name="submit" class="action-button" type="submit">Confirmar</button>
                                 </fieldset>
                             </form>
                         </div>

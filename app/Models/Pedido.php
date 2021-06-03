@@ -9,7 +9,7 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','ds_status', 'cliente_id', 'ds_endereco', 'ds_numero', 'ds_cep', 'ds_cidade','ds_estado', 'vl_total', 'vl_parcela', 'nr_parcela'];
+    protected $fillable = ['user_id','ds_status', 'cliente_id', 'ds_endereco', 'ds_numero', 'ds_cep', 'ds_cidade','ds_uf', 'vl_total', 'cd_cartao', 'vl_parcela', 'nr_parcela'];
     protected $table = 'tb_pedido';
 
     public function itens(){
@@ -17,10 +17,14 @@ class Pedido extends Model
     }
 
     public function cliente(){
-        return Cliente::where('id','=', $this->id)->get();
+        return Cliente::where('user_id','=', $this->user_id)->first();
+    }
+
+    public function usuario(){
+        return User::where('id','=', $this->user_id)->first();
     }
 
     public static function ult5pedidos(){
-        return Pedido::all()->sortBy('created_at')->take(5);
+        return Pedido::all()->sortByDesc('created_at')->take(5);
     }
 }
