@@ -37,13 +37,14 @@
                                 <fieldset id="steep-first">
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Localização</h2>
-                                        <input type="text" name="fname" placeholder="First Name" />
-                                        <input type="text" name="lname" placeholder="Last Name" />
-                                        <input type="text" name="phno" placeholder="Contact No." />
-                                        <input type="text" name="phno_2" placeholder="Alternate Contact No." />
+                                        <input type="text" name="endereco" placeholder="Endereço" />
+                                        <input type="number" name="numero" placeholder="Número" />
+                                        <input type="number" name="cep" placeholder="CEP" />
+                                        <input type="text" name="cidade" placeholder="Cidade" />
+                                        <input type="text" name="estado" placeholder="Estado" />
                                     </div>
 
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <input type="button" name="next" class="next action-button" value="Próximo Passo" />
                                 </fieldset>
                                 <fieldset id="steep-seccond">
                                     <div class="form-card">
@@ -66,22 +67,31 @@
                                             <option value="3">3 meses</option>
                                         </select>
                                     </div>
-                                    <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                                    <input type="button" name="make_payment" class="next action-button" value="Próximo Passo" />
                                 </fieldset>
                                 <fieldset id="steep-third">
                                     <div class="form-card">
-                                        <h2 class="fs-title text-center">Successo !</h2> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3">
-                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                        <h2 class="fs-title text-center">Informacões Gerais</h2> <br><br>
+                                        <div class=" row m-0">
+                                            <div class=" col-12 p-0 py-2 border-bottom">
+                                                <p class="h6 mr-2 d-inline">Nome:</p>
+                                                <!-- informação do nome completo do usuario -->
+                                                <p class=" text-uppercase d-inline">Aqui será colocado meu nome</p>
                                             </div>
-                                        </div> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>Compra Feita Com Sucesso</h5>
+                                            <div class=" col-12 p-0 py-2 border-bottom">
+                                                <p class="h6 mr-2 d-inline ">Localização:</p>
+                                                <!-- informação do nome completo do usuario -->
+                                                <p class=" d-inline">Aqui será colocado minha localização com javascript</p>
                                             </div>
+                                            <div class=" col-12 py-2 p-0">
+                                                <p class="h6 mr-2 d-inline">Localização:</p>
+                                                <!-- informação do nome completo do usuario -->
+                                                <p class=" d-inline">Aqui será colocado minha forma de pagamento com javascript</p>
+                                            </div>
+
                                         </div>
                                     </div>
+                                    <button name="voltar" class="action-button">Confirmar</button>
                                 </fieldset>
                             </form>
                         </div>
