@@ -42,3 +42,8 @@
 
     }
 }
+
+.kards > div {
+    margin: 0 4vw;
+    justify-content: space-between;
+}

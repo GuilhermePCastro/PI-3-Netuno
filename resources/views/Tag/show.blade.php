@@ -29,12 +29,8 @@
         </div>
     </div>
 
-    <div class=" kards dsk-container-4x25 ">
-
-        <div class=" row m-0 justify-content-center">
-
-            <div class="dsk-container-4x1"></div>
-
+    <div class="kards dsk-container-4x25 ">
+        <div class="row">
             @foreach ($produtos as $produto)
                 <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
                     <img class="img-kard" src="{{ asset($produto->hx_foto1) }}" alt="{{ $produto->ds_nome}}">
@@ -46,10 +42,7 @@
                         <button class="btn-kard text-uppercase w-100" onclick="window.location.href = '{{ route('produto.show', $produto->id) }}'" >Comprar</button>
                     </div>
                 </div>
-
-                <div class="dsk-container-4x1"></div>
             @endforeach
-
         </div>
         <div class="mt-5 mb-4 d-flex justify-content-center">
             {{ $produtos->links()}}
