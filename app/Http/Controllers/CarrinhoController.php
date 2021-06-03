@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Carrinho;
+use App\Models\Cliente;
 
 class CarrinhoController extends Controller
 {
@@ -79,7 +80,9 @@ class CarrinhoController extends Controller
 
     public function pagamento(){
         $carrinho = Carrinho::where('user_id', '=' , Auth()->user()->id)->get();
-        return view('carrinho.pagamento')->with('carrinho', $carrinho);
+        $cliente = Cliente::where('user_id', '=', Auth()->user()->id)->first();
+
+        return view('carrinho.pagamento')->with(['carrinho' => $carrinho, 'cliente' => $cliente]);
     }
 
 }

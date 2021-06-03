@@ -37,11 +37,11 @@
                                 <fieldset id="steep-first">
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Localização</h2>
-                                        <input type="text" name="endereco" placeholder="Endereço" />
-                                        <input type="number" name="numero" placeholder="Número" />
-                                        <input type="number" name="cep" placeholder="CEP" />
-                                        <input type="text" name="cidade" placeholder="Cidade" />
-                                        <input type="text" name="estado" placeholder="Estado" />
+                                        <input type="text" value="{{ $cliente->ds_endereco }}" name="ds_endereco" placeholder="Endereço" require/>
+                                        <input type="text" value="{{ $cliente->ds_numero }}" name="ds_numero" placeholder="Número" require/>
+                                        <input type="text" value="{{ $cliente->ds_cep }}" name="ds_cep" placeholder="CEP (99999-999)" require pattern="[0-9]{5}-[0-9]{3}$"/>
+                                        <input type="text" value="{{ $cliente->ds_cidade }}" name="ds_cidade" placeholder="Cidade" require/>
+                                        <input type="text" value="{{ $cliente->ds_uf }}" name="ds_uf" placeholder="Estado" require />
                                     </div>
 
                                     <input type="button" name="next" class="next action-button" value="Próximo Passo" />
@@ -50,21 +50,23 @@
                                     <div class="form-card">
                                         <h2 class="fs-title">Informações de Pagamento</h2>
 
-                                        <label class="pay">Card Holder Name*</label>
-                                        <input type="text" name="holdername" placeholder="" />
+                                        <label class="pay">Nome no Cartão*</label>
+                                        <input type="text" name="holdername" placeholder="" require/>
                                         <div class="row">
-                                            <div class="col-9"> <label class="pay">Card Number*</label>
-                                                <input type="text" name="cardno" placeholder="" />
+                                            <div class="col-9"> <label class="pay">Número do cartão*</label>
+                                                <input type="text" name="nr_cartao" placeholder="" maxlength="12" pattern="[0-9]{12}$" require/>
                                             </div>
                                             <div class="col-3"> <label class="pay">CVC*</label>
-                                                <input type="password" name="cvcpwd" placeholder="***" />
+                                                <input type="password" name="cvcpwd"  maxlength="3" placeholder="***" pattern="[0-9]{3}$" require/>
                                             </div>
                                         </div>
                                         <select class="custom-select" id="inputGroupSelect01">
-                                            <option selected>Parcelas</option>
-                                            <option value="1">1 meses</option>
-                                            <option value="2">2 meses</option>
-                                            <option value="3">3 meses</option>
+                                            <option value="1">1X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/1, 2, ',', '.') }}</option>
+                                            <option value="2">2X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/2, 2, ',', '.') }}</option>
+                                            <option value="3">3X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/3, 2, ',', '.') }}</option>
+                                            <option value="4">4X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/4, 2, ',', '.') }}</option>
+                                            <option value="5">5X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/5, 2, ',', '.') }}</option>
+                                            <option value="6">6X - R$ {{ number_format(\App\Models\Carrinho::totalCarrinho()/6, 2, ',', '.') }}</option>
                                         </select>
                                     </div>
                                     <input type="button" name="make_payment" class="next action-button" value="Próximo Passo" />
