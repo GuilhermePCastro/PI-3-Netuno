@@ -111,7 +111,8 @@ class ProdutosController extends Controller
 
     public function search(Request $request){
         $produtos = Produto::where('ds_nome','like', '%' . $request->search . '%')->paginate(8);
-        return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search]);
+        $count = Produto::where('ds_nome','like', '%' . $request->search . '%')->count();
+        return view('produto.search')->with(['produtos' => $produtos, 'search' => $request->search, 'count' => $count]);
     }
 
     public function filtro(Request $request){

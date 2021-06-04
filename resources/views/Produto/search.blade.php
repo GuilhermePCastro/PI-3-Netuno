@@ -27,7 +27,7 @@
             </div>
             <div class="row m-0">
                 <div class="dsk-container-4x1"></div>
-                <p class="text-muted">{{ "Encontramos " . count($produtos) . " produtos"}}</p>
+                <p class="text-muted">{{ "Encontramos " . $count . " produtos"}}</p>
             </div>
         </div>
     </div>
