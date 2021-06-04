@@ -89,17 +89,18 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
 
         $user = User::where('id', '=', $cliente->user_id)->first();
-        if(!$user->IsAdmin){
+        if($user->IsAdmin == 0){
 
-            $user->update(['IsAdmin' => 1]);
+            $user->update(['IsAdmin' => '1']);
             session() -> flash('valido', "Cliente $cliente->id virou admin!");
 
         }else{
 
-            $user->update(['IsAdmin' => 0]);
+            $user->update(['IsAdmin' => '0']);
             session() -> flash('valido', "Cliente $cliente->id não é mais admin!");
 
         }
+
 
         return redirect(route('cliente.index'));
     }
