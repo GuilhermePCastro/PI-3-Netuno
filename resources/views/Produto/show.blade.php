@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     @include('layouts.head')
     <link rel="stylesheet" href="{{ asset('css/prod-desc.css') }}">
-    <title>Document</title>
+    <title>Netuno</title>
 </head>
 <body class="dsk-container-4x25">
     <header>

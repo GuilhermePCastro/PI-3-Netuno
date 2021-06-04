@@ -52,9 +52,9 @@
             </label>
             </div>
             <div class="inputs-group" >
-            <label class="input-container input-container-40">
+            <label class="input-container input-container-50">
               Tag*
-              <select name="tags[]" id="" multiple>
+              <select class="input-mult" name="tags[]" id="" multiple>
                     @foreach ($tags as $tag )
                         <option value="{{$tag->id}}" @if($produto->tags->contains($tag->id)) selected @endif>
                             {{$tag->tag_nome}}
