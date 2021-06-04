@@ -30,3 +30,24 @@ $(document).ready(function () {
     });
 
 });
+
+
+function pegaValorEnd(){
+
+    let endereco = document.querySelector('#ds_endereco');
+    let numero = document.querySelector('#ds_numero');
+    let cep = document.querySelector('#ds_cep');
+    let cidade = document.querySelector('#ds_cidade');
+    let uf = document.querySelector('#ds_uf');
+    let address = document.querySelector('#address');
+
+    address.innerHTML = endereco.value + ', ' + numero.value + '<br>' + cidade.value + ' - ' + uf.value + '<br>' + 'CEP: ' + cep.value
+}
+
+function pegaValorParcela(){
+
+    let parcela = document.querySelector('#nr_parcela');
+    let textParcela = document.querySelector('#parcela');
+
+    textParcela.innerHTML = "Pago em " + parcela.options[parcela.selectedIndex].innerHTML;
+}

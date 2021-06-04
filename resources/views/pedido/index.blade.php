@@ -53,9 +53,21 @@
           Código
           <input id="codigo" name="codigo" type="text" class="input-container__input">
         </label>
-        <label class="input-container input-container-40">
+        <label class="input-container input-container-25">
           CPF Cliente
           <input id="cpf" name="cpf" type="text" class="input-container__input" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$" placeholder="999.999.999-99">
+        </label>
+        <label class="input-container input-container-25">
+            Status
+            <select name="status">
+                <option value="" selected></option>
+                <option value="Em Aberto">Em Aberto</option>
+                <option value="Em Atendimento">Em Atendiemnto</option>
+                <option value="Em Separação">Em Separação</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Finalizado">Finalizado</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
         </label>
         <button type="submit" class="inputs__search">
           Buscar
@@ -67,6 +79,7 @@
           <th>Cód.</th>
           <th>CPF Cliente</th>
           <th>Status</th>
+          <th>Data</th>
           <th>Total</th>
           <th>Ação</th>
         </tr>
@@ -75,6 +88,7 @@
                 <td>{{ $pedido -> id }}</td>
                 <td>{{ $pedido->cliente()->ds_cpf }}</td>
                 <td>{{ $pedido -> ds_status }}</td>
+                <td>{{ date_format($pedido->created_at, 'd/m/Y') }}</td>
                 <td>{{ number_format($pedido -> vl_total, 2, ',', '.') }}</td>
                 <td>
                     <a href="{{ route('pedido.show', $pedido->id) }}" >

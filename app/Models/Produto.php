@@ -29,4 +29,6 @@ class Produto extends Model
     public static function ultProdutos(){
         return Produto::where('qt_estoque','>','0')->OrderBy('created_at','desc')->take(4)->get();
     }
+
+
 }

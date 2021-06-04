@@ -57,7 +57,9 @@ Route::group(['middleware' => 'IsAdmin'], function(){
         return view('dashboard');
     })->name('dashboard');
 
-
+    //pedido
+    Route::resource('/pedido', PedidoController::class);
+    Route::get('/pedido/index/filtro', [PedidoController::class, 'filtro'])->name('pedido.filtro');
 
 });
 
@@ -70,17 +72,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'show'])->name('carrinho.show');
     Route::get('/carrinho/pagamento', [CarrinhoController::class, 'pagamento'])->name('carrinho.pagamento');
 
-    //Pedido
-    Route::post('/pedido/add', [OrderController::class, 'add'])->name('pedido.add');
-    Route::get('/pedido', [OrderController::class, 'show'])->name('pedido.show');
-
     //Cliente
     Route::resource('/cliente', ClienteController::class);
 
-    //pedido
-    Route::resource('/pedido', PedidoController::class);
+    // pedido
     Route::post('/pedido/add', [PedidoController::class, 'add'])->name('pedido.add');
-    Route::get('/pedido/filtro', [PedidoController::class, 'filtro'])->name('pedido.filtro');
     Route::get('/pedido/sucesso/{pedido}', [PedidoController::class, 'sucesso'])->name('pedido.sucesso');
 
 });

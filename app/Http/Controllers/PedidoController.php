@@ -57,7 +57,7 @@ class PedidoController extends Controller
         ]);
 
         //Para dar um retorno para o usuário
-        session() -> flash('valido', "Pedido $pedido->id foi atualziado com sucesso!");
+        session() -> flash('valido', "Pedido $pedido->id foi atualizado com sucesso!");
         return redirect(route('pedido.index'));
     }
 
@@ -74,10 +74,15 @@ class PedidoController extends Controller
 
         if($request->cpf != ''){
             $cliente = Cliente::where('ds_cpf','=', $request->cpf)->first();
-            $produtos = $produtos->where('cliente_id','=', $cliente->id );
+            $pedidos = $pedidos->where('cliente_id','=', $cliente->id );
         }
 
-        return view('pedido.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Category::all()]);
+        if($request->status != ''){
+            $pedidos = $pedidos->where('ds_status','=', $request->status );
+        }
+
+
+        return view('pedido.index')->with('pedidos', $pedidos->paginate(5));
     }
 
     public function sucesso(Pedido $pedido){

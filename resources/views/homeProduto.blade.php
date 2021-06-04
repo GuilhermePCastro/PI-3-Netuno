@@ -54,70 +54,22 @@
         </div>
     </div>
 
-    <div class=" kards dsk-container-4x25 ">
-
-        <div class=" row m-0 justify-content-center">
-
-            <div class="dsk-container-4x1"></div>
-
+    <div class="kards dsk-container-4x25 ">
+        <div class="row">
             <!------ inicio foreach ------>
-
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
-                <img class="img-kard" src="https://via.placeholder.com/400" alt="">
-                <div class="w-100 cont-kard text-center">
-                    <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
-                    <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">79.90</p>
+            @foreach (\App\Models\PedidoItem::produtoMaisVendidos() as $produto)
+                <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
+                    <img class="img-kard" src="{{ asset($produto->produto()->hx_foto1) }}" alt="{{ $produto->ds_nome}}">
+                    <div class="w-100 cont-kard text-center">
+                        <p class=" text-kard ">{{ $produto->produto()->ds_nome}}</p>
+                        <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">{{ number_format($produto->produto()->vl_produto, 2, ',', '.') }}</p>
+                    </div>
+                    <div class="w-100 mt-3">
+                        <button class="btn-kard text-uppercase w-100" onclick="window.location.href = '{{ route('produto.show', $produto->produto()->id) }}'" >Comprar</button>
+                    </div>
                 </div>
-                <div class="w-100 mt-3">
-                    <button class="btn-kard text-uppercase w-100">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="dsk-container-4x1"></div>
-
+            @endforeach
             <!------ end ------->
-
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
-                <img class="img-kard" src="https://via.placeholder.com/400" alt="">
-                <div class="w-100 cont-kard text-center">
-                    <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
-                    <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">79.90</p>
-                </div>
-                <div class="w-100 mt-3">
-                    <button class="btn-kard text-uppercase w-100">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="dsk-container-4x1"></div>
-            <div class="sm-container-4x1"></div>
-
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
-                <img class="img-kard" src="https://via.placeholder.com/400" alt="">
-                <div class="w-100 cont-kard text-center">
-                    <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
-                    <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">79.90</p>
-                </div>
-                <div class="w-100 mt-3">
-                    <button class="btn-kard text-uppercase w-100">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="dsk-container-4x1"></div>
-
-            <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
-                <img class="img-kard" src="https://via.placeholder.com/400" alt="">
-                <div class="w-100 cont-kard text-center">
-                    <p class=" text-kard ">Camiseta Dupla Face Naruto</p>
-                    <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">79.90</p>
-                </div>
-                <div class="w-100 mt-3">
-                    <button class="btn-kard text-uppercase w-100">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="dsk-container-4x1"></div>
-
-            <div class="dsk-container-4x1"></div>
         </div>
     </div>
 
