@@ -175,18 +175,18 @@ select.list-dt:focus {
 }
 
 #progressbar #personal:before {
-
-    content: "\f007"
+    font-family: FontAwesome;
+    content: "\f48b"
 }
 
 #progressbar #payment:before {
-
+    font-family: FontAwesome;
     content: "\f09d"
 }
 
 #progressbar #confirm:before {
-
-    content: "\f00c"
+    font-family: FontAwesome;
+    content: "\f543"
 }
 
 #progressbar li:before {

@@ -5,6 +5,7 @@
     <title>Netuno</title>
     <link rel="stylesheet" href="{{ asset('css/pagamento.css')}}">
     <script src="{{ asset('js/pagamento.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
 
@@ -32,7 +33,7 @@
                                         <strong>Pagamento</strong>
                                     </li>
                                     <li id="confirm">
-                                        <strong>Finalizado</strong>
+                                        <strong>Finalizando</strong>
                                     </li>
                                 </ul> <!-- fieldsets -->
                                 <fieldset id="steep-first">
