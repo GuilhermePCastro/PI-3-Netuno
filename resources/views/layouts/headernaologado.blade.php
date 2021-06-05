@@ -42,7 +42,7 @@
         <div>
             <form action="{{ route('produto.search') }}"  class="d-flex ml-5 p-2 mr-5 mt-1 me-auto w-100">
                 @csrf
-                <input type="text" class="form-control" name="search" id="search">
+                <input type="text" class="form-control" name="search" placeholder="Pesquise um produto..." id="search">
                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
             </form>
         </div>
