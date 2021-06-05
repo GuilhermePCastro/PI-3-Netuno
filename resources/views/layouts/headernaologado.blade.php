@@ -1,6 +1,8 @@
 <div class="header-principal navbar-expand-md bg-light d-flex align-items-center d-flex bd-highlight mb-0">
     <div class=" dsk-container-4x1 sm-container-4x1 "></div>
-    <div class="logo-header mb-0 bg-primary dsk-container-4x4 sm-container-4x9"></div>
+    <div class="logo-header mb-0 dsk-container-4x4 sm-container-4x9">
+        <img onclick="window.location.href = '/'" class="logo" src="{{ asset('images/logo5.png') }}" alt="">
+    </div>
 
     <button class="navbar-toggler ml-auto p-2 bd-highlight" type="button" data-toggle="collapse" data-target="#openClose" aria-controls="openClose" aria-expanded="false" aria-label="Toggle navigation">
         <i class="far fa-caret-square-down icon-yellow fa-2x"></i>
@@ -22,7 +24,7 @@
             <!-- terminar aqui -->
         </div>
 
-        <div class=" nav-item dropdown pl-3">
+        <div class=" nav-item dropdown pl-3 mr-5">
             <a class="nav-link h-100 btn btn-outline-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Categorias
             </a>
@@ -35,6 +37,14 @@
                 @endforeach
             </div>
             <!-- terminar aqui -->
+        </div>
+
+        <div>
+            <form action="{{ route('produto.search') }}"  class="d-flex ml-5 p-2 mr-5 mt-1 me-auto w-100">
+                @csrf
+                <input type="text" class="form-control" name="search" id="search">
+                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </form>
         </div>
 
 
