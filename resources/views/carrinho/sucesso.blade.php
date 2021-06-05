@@ -22,7 +22,7 @@
     @endif
 
     <div class="text-center my-5">
-        <p class="h1">Obrigado por comprar conosco :D</p>
+        <p class="h1 ">Obrigado por comprar conosco :D</p>
     </div>
 
     <div class=" row mx-0 justify-content-center mt-4 ">
@@ -40,12 +40,11 @@
     </div>
 
     <div class="text-center my-5">
-        <p class="h4">Pedido Nº {{ $pedido->id }} gerado.</p>
+        <p class="h4 text-success">Pedido Nº {{ $pedido->id }} gerado.</p>
     </div>
 
 
-    <div class="mt-3 footer-dark position-fixed">
-    </div>
+
 
 </div>
 </body>
