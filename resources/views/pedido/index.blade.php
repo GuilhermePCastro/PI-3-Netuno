@@ -62,7 +62,7 @@
             <select name="status">
                 <option value="" selected></option>
                 <option value="Em Aberto">Em Aberto</option>
-                <option value="Em Atendimento">Em Atendiemnto</option>
+                <option value="Em Atendimento">Em Atendimento</option>
                 <option value="Em Separação">Em Separação</option>
                 <option value="Enviado">Enviado</option>
                 <option value="Finalizado">Finalizado</option>
