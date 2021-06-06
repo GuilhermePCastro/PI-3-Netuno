@@ -78,7 +78,7 @@
                     <h3 class="m-0 text-uppercase text-h3">Meus pedidos</h3>
 
                     <div class="accordion mt-4 mb-2 col-11 mx-auto ">
-                        @foreach (\App\Models\Pedido::where('user_id', '=', Auth()->user()->id)->orderBy('created_at','desc')->get() as $pedido)
+                        @foreach (\App\Models\Pedido::where('user_id', '=', Auth()->user()->id)->orderBy('id','desc')->get() as $pedido)
                             <div class="accordion-item">
                                 <div class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#item-{{ $pedido->id }}">

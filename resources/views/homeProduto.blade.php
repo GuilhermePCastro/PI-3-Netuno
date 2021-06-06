@@ -60,11 +60,11 @@
             @foreach (\App\Models\PedidoItem::produtoMaisVendidos() as $produto)
                 <div class="mt-3 dsk-container-4x5 sm-container-4x11 kard shadow text-center">
                     <img class="img-kard" src="{{ asset($produto->produto()->hx_foto1) }}" alt="{{ $produto->ds_nome}}">
-                    <div class="w-100 cont-kard text-center">
+                    <div class="w-100 cont-kard text-center mb-5">
                         <p class=" text-kard ">{{ $produto->produto()->ds_nome}}</p>
                         <p class=" money-kard d-inline">R$ </p><p class="money-kard mt-4 d-inline">{{ number_format($produto->produto()->vl_produto, 2, ',', '.') }}</p>
                     </div>
-                    <div class="w-100 mt-3">
+                    <div class="w-100 mt-3 btn-position">
                         <button class="btn-kard text-uppercase w-100" onclick="window.location.href = '{{ route('produto.show', $produto->produto()->id) }}'" >Comprar</button>
                     </div>
                 </div>
