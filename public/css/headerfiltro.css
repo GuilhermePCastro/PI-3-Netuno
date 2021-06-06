@@ -18,19 +18,9 @@
     color: #F36F22;
 }
 
-.logo-header {
-    max-height: 50px ;
-    width: auto;
 
-}
 
-.logo {
-    object-fit: cover;
-    height: 60px;
-    width: 50%;
-    cursor: pointer;
-    max-height: 100%;
-}
+
 
 .icon-yellow {
     color: #FFCE09;
@@ -40,10 +30,6 @@
 @media (max-width: 900px){
 
     /* ----------- Header -------------*/
-
-    .logo-header {
-        height: 40px;
-    }
 
     .header-principal{
         height: 60px;

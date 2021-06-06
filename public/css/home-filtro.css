@@ -20,6 +20,12 @@ body{
 .kard {
     box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
     border-radius: 0.5rem;
+    position: relative;
+}
+
+.btn-position{
+    position: absolute;
+    bottom: 0;
 }
 
 .cont-kard {
@@ -59,6 +65,8 @@ body{
 
 /* ---------- Footer ----------- */
 .footer-dark {
+    position: absolute;
+    bottom: 0;
     height: 70px;
     background: #010101;
     width: 100%;
@@ -185,6 +193,14 @@ body{
 @media (max-width: 900px){
 
     /* ----------- Header -------------*/
+
+    .footer-dark {
+        position: unset;
+        height: 70px;
+        background: #010101;
+        width: 100%;
+        bottom: 0;
+    }
 
     .logo-header {
         height: 40px;

@@ -1,7 +1,7 @@
 <div class="header-principal navbar-expand-md bg-light d-flex align-items-center d-flex bd-highlight mb-0">
     <div class=" dsk-container-4x1 sm-container-4x1 "></div>
-    <div class="logo-header mb-0 dsk-container-4x4 sm-container-4x9">
-        <img onclick="window.location.href = '/'" class="logo" src="{{ asset('images/logo5.png') }}" alt="">
+    <div class="mb-0 dsk-container-4x4 sm-container-4x9">
+        <img onclick="window.location.href = '/'" class="w-100 m-0 p-0" src="{{ asset('images/logo5.png') }}" alt="">
     </div>
 
     <button class="navbar-toggler ml-auto p-2 bd-highlight" type="button" data-toggle="collapse" data-target="#openClose" aria-controls="openClose" aria-expanded="false" aria-label="Toggle navigation">
