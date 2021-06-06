@@ -27,4 +27,26 @@ class Pedido extends Model
     public static function ult5pedidos(){
         return Pedido::all()->sortByDesc('created_at')->take(5);
     }
+
+    public static function pedidosAtivos(){
+        return Pedido::where([
+                                ['ds_status','<>','Finalizado'],
+                                ['ds_status','<>','Cancelado'],
+                                ['user_id','=', Auth()->user()->id]
+                                ])->orderBy('id','desc')->get();
+    }
+
+    public static function pedidosFinalizados(){
+        return Pedido::where([
+                                ['ds_status','=','Finalizado'],
+                                ['user_id','=', Auth()->user()->id]
+                            ])->orderBy('id','desc')->get();
+    }
+
+    public static function pedidosCancelados(){
+        return Pedido::where([
+                                ['ds_status','=','Cancelado'],
+                                ['user_id','=', Auth()->user()->id]
+                            ])->orderBy('id','desc')->get();
+    }
 }
