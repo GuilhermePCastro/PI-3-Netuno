@@ -51,5 +51,7 @@
             {{ $produtos->links()}}
         </div>
     </div>
+    <div class="mt-3 footer-dark position-relative">
+    </div>
 </body>
 </html>
