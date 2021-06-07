@@ -52,6 +52,7 @@
     border-radius: 36px;
     background: var(--blue);
     text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
 
 .main__page-content .page-content__inputs .inputs__search img {

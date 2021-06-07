@@ -8,7 +8,8 @@
 body{
     position: relative;
     min-height: 100vh;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .text-h3 {
@@ -23,10 +24,10 @@ body{
 
 /* ---------- Footer ----------- */
 .footer-dark {
+    margin-top: auto !important;
     height: 70px;
     background: #010101;
     width: 100%;
-    bottom: 0;
 }
 
 .nome-produto{
