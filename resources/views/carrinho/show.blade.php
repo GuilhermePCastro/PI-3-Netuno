@@ -68,7 +68,9 @@
                         <p class="mr-2 text-shadow text-final m-0 d-inline-block text-white">Valor total da compra:</p><span class="mr-2 text-white text-final-money d-inline-block">R$</span><p class="text-white text-final d-inline-block">{{ number_format(\App\Models\Carrinho::totalCarrinho(), 2, ',', '.') }}</p>
                     </div>
                     <div class=" col-12 col-md-2">
-                        <button class="w-100 btn btn-outline-light text-button" onclick="window.location.href = '{{ route('carrinho.pagamento') }}'">Finalizar Compra</button>
+                        @if (\App\Models\Carrinho::quantidade() > 0)
+                            <button class="w-100 btn btn-outline-light text-button" onclick="window.location.href = '{{ route('carrinho.pagamento') }}'">Finalizar Compra</button>
+                        @endif
                     </div>
                 </div>
             </div>
