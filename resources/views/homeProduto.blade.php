@@ -50,7 +50,7 @@
 
     <div class=" mt-4 row m-0 justify-content-center">
         <div class=" col-12 text-center mb-4">
-            <h2 class="m-0 text-uppercase text-h2 ">MAIS VENDIDOS</h2>
+            <h2 class="m-0 text-uppercase text-h2 ">POPULARES</h2>
         </div>
     </div>
 
