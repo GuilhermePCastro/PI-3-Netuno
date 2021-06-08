@@ -48,7 +48,7 @@
             @endforeach
         </div>
         <div class="mt-5 mb-4 d-flex justify-content-center">
-            {{ $produtos->links()}}
+            {{ $produtos->withQueryString()->links()}}
         </div>
     </div>
     <div class="mt-3 footer-dark">
